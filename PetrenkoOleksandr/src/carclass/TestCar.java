@@ -21,6 +21,15 @@ public class TestCar {
 
         System.out.println(trueKey);
 
+        float fuel = 10;
+
+        boolean canDrive = car1.canGo(fuel);
+
+        System.out.println(canDrive);
+
+        float timeIn = car1.timeDriving(10,50);
+        System.out.println("This car can move " + timeIn + " hours");
+
 
 
     }
