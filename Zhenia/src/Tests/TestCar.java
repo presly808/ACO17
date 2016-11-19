@@ -26,6 +26,26 @@ public class TestCar {
             testResult = testResult && (res[i] == exp[i]);
         }
 
-        System.out.println("Is open/close test passed: " + testResult);
+        System.out.println("Is open/close test passed: " + testResult + "\n");
+
+        boolean exp1 = true;
+
+        boolean res1 = car1.go();
+
+        double []res2 = new double[3];
+
+        res2[0] = car1.go(20);
+        res2[1] = car1.go(200);
+        res2[2] = car1.go(10);
+
+        double []exp2 = {20, 180, 0};
+
+        testResult = true;
+
+        for (int i = 0; i < res2.length; i++) {
+            testResult = testResult && (res2[i] == exp2[i]);
+        }
+
+        System.out.println("Is go test passed: " + (testResult && (exp1 == res1)));
     }
 }

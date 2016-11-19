@@ -41,8 +41,6 @@ public class Car {
         return false;
     }
 
-
-
     public String showInfo(){
         String str = "";
 
@@ -50,5 +48,28 @@ public class Car {
                 model, fuel, fuelConsume, price);
 
         return str;
+    }
+
+    public boolean go(){
+        return fuel > 0 ? true : false;
+    }
+
+    public double go(double km){
+        if (km <= 0) {
+            return 0;
+        }
+
+        double consumed = km * fuelConsume;
+
+        if (fuel >= consumed) {
+            fuel -= consumed;
+
+            return km;
+        } else {
+            consumed = fuel;
+            fuel = 0;
+
+            return consumed / fuelConsume;
+        }
     }
 }
