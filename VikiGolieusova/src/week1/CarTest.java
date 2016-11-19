@@ -6,13 +6,17 @@ public class CarTest {
     public static void main(String[] args) {
 
         Car car = new Car();
-        car.init("audi", "yu", 20, 15000.00);
+        car.init("audi", "yu", 20, 6, 15000.00);
 
 
         boolean opened = car.open("12");
         System.out.println(opened);
 
-        String show = car.showAll(car);
-        System.out.println(show);
+        String showInfo = car.showAll(car);
+        System.out.println(showInfo);
+
+        double resultOfFuelBalance = car.go(30);
+        System.out.println(resultOfFuelBalance);
+
     }
 }
