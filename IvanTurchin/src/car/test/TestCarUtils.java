@@ -1,7 +1,7 @@
 package car.test;
 
 import car.Car;
-import car.Utils;
+import car.CarUtils;
 
 public class TestCarUtils {
     public static void main(String[] args) {
@@ -15,9 +15,9 @@ public class TestCarUtils {
     }
 
     private static boolean testBuyCar() {
-        Utils carUtils = new Utils();
+        CarUtils carUtils = new CarUtils();
 
-        Car myCar = carUtils.shop(10000, "bmv");
+        Car myCar = carUtils.shop(10000, "bmw");
         boolean test = myCar != null;
 
         Car myCar1 = carUtils.shop(3000, "ferrari");
@@ -30,8 +30,8 @@ public class TestCarUtils {
     }
 
     private static boolean testOpenCar() {
-        Utils carUtils = new Utils();
-        Car myCar = carUtils.shop(10000, "bmv");
+        CarUtils carUtils = new CarUtils();
+        Car myCar = carUtils.shop(10000, "bmw");
 
         String key = myCar.getKey();
 
@@ -43,34 +43,34 @@ public class TestCarUtils {
     }
 
     private static boolean testChargeCar() {
-        Utils carUtils = new Utils();
-        Car myCar = carUtils.shop(10000, "bmv");
+        CarUtils carUtils = new CarUtils();
+        Car myCar = carUtils.shop(10000, "bmw");
 
-        boolean test = carUtils.charge(myCar, "92", 400) == myCar.fuel;
-        boolean test1 = carUtils.charge(myCar, "92", 400) == 80;
-        boolean test2 = carUtils.charge(null, "92", 400) == 0;
-        boolean test3 = carUtils.charge(myCar, "100", 400) == 0;
-        boolean test4 = carUtils.charge(myCar, "92", 1) == 0;
+        boolean test = carUtils.charge(myCar, "92", 1000, 20) == myCar.fuel;
+        boolean test1 = carUtils.charge(myCar, "92", 1000, 20) == 900;
+        boolean test2 = carUtils.charge(null, "92", 400, 20) == 0;
+        boolean test3 = carUtils.charge(myCar, "100", 400, 20) == 0;
+        boolean test4 = carUtils.charge(myCar, "92", 0, 20) == 0;
 
         return test && test1 && test2 && test3 && test4;
     }
 
     private static boolean testMoveCar() {
-        Utils carUtils = new Utils();
-        Car myCar = carUtils.shop(10000, "bmv");
+        CarUtils carUtils = new CarUtils();
+        Car myCar = carUtils.shop(10000, "bmw");
 
         carUtils.open(myCar, myCar.getKey());
-        carUtils.charge(myCar, "95", 200);
+        carUtils.charge(myCar, "95", 200, 5);
 
         return carUtils.go(myCar);
     }
 
     private static boolean testShowDetails() {
-        Utils carUtils = new Utils();
-        Car myCar = carUtils.shop(10000, "bmv");
+        CarUtils carUtils = new CarUtils();
+        Car myCar = carUtils.shop(10000, "bmw");
 
         String temp = carUtils.showDetails(myCar);
 
-        return temp.length() != 0 && temp.contains("bmv") && temp.contains(myCar.getKey());
+        return temp.length() != 0 && temp.contains("bmw") && temp.contains(myCar.getKey());
     }
 }

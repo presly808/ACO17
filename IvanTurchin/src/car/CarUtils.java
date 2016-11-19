@@ -1,20 +1,53 @@
 package car;
 
-public class Utils {
+import java.util.Arrays;
+
+public class CarUtils {
+
+    public Car[] cars = new Car[0];
+
+    private int findLast() {
+        int res = 0;
+
+        for (int i = 0; i < this.cars.length; i++) {
+            if (this.cars[i] != null) {
+                res++;
+            }
+        }
+
+        return res;
+    }
 
     public Car shop(int money, String model) {
 
+        Car car = null;
+
         if (model.equals("audi") && money >= 10000) {
-            return new Car("audi", 10000, "audiKey");
-        } else if (model.equals("bmv") && money >= 9000) {
-            return new Car("bmv", 9000, "bmvKey");
+            car = new Car("audi", 10000, "audiKey");
+        } else if (model.equals("bmw") && money >= 9000) {
+            car = new Car("bmw", 9000, "bmwKey");
         } else if (model.equals("ferrari") && money >= 40000) {
-            return new Car("ferrari", 40000, "ferrariKey");
+            car = new Car("ferrari", 40000, "ferrariKey");
         } else if (model.equals("ford") && money >= 4000) {
-            return new Car("ford", 4000, "fordKey");
+            car = new Car("ford", 4000, "fordKey");
         }
 
-        return null;
+        this.cars = Arrays.copyOf(this.cars, this.cars.length + 1);
+        this.cars[findLast()] = car;
+
+        return car;
+    }
+
+    public String showAll() {
+        String res = "";
+
+        for (int i = 0; i < this.cars.length; i++) {
+            if (this.cars[i] != null) {
+                res += this.cars[i].getModel() + "\n";
+            }
+        }
+
+        return res;
     }
 
     public boolean open(Car car, String key) {
@@ -41,7 +74,7 @@ public class Utils {
         return isClosed;
     }
 
-    public double charge(Car car,String type, int money) {
+    public int charge(Car car,String type, int money, int volume) {
 
         int priceByLiter = 0;
 
@@ -57,9 +90,11 @@ public class Utils {
             priceByLiter = 7;
         }
 
-        if (car != null && money >= priceByLiter && priceByLiter != 0) {
-            car.fuel = money / priceByLiter;
-            return money / priceByLiter;
+        double fill = priceByLiter * volume;
+
+        if (car != null && money >= fill && priceByLiter != 0) {
+            car.fuel = volume;
+            return ((int) (money - fill));
         }
 
         return 0;
@@ -74,5 +109,9 @@ public class Utils {
 
         return String.format("model - %s\nprice - %s\nkey - %s\nfuel - %.2f\nis opened - %s\n",
                 car.getModel(), car.getPrice(), car.getKey(), car.fuel, car.opened);
+    }
+
+    public Car[] getCars() {
+        return cars;
     }
 }
