@@ -5,19 +5,21 @@ public class Car {
     public int price;
     public boolean opened;
 
+    private boolean key;
+
     public Car(String model, int price) {
         this.model = model;
         this.price = price;
     }
 
-    public boolean getKet(int money) {
+    public void getKet(int money) {
 
-        return money >= this.price;
+        this.key = money >= this.price;
     }
 
-    public boolean openCar(boolean key)  {
+    public boolean openCar()  {
 
-        return this.opened = key;
+        return this.opened = this.key;
     }
 
     public double chargeCar(int money, int volume, String type) {
@@ -35,9 +37,9 @@ public class Car {
         return this.fuel = money / (priceByLiter * volume);
     }
 
-    public boolean go(boolean key) {
+    public boolean go() {
 
-        return key && this.fuel > 0;
+        return this.key && this.fuel > 0;
     }
 
     public String showInfo() {
