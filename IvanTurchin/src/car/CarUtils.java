@@ -93,7 +93,7 @@ public class CarUtils {
         double fill = priceByLiter * volume;
 
         if (car != null && money >= fill && priceByLiter != 0) {
-            car.fuel = volume;
+            car.fuel += volume;
             return ((int) (money - fill));
         }
 

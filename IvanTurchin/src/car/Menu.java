@@ -75,6 +75,7 @@ public class Menu {
                         if (index <= 0 || index > utils.cars.length) {
                             continue toGarage;
                         }
+                        carMenu:
                         while (true) {
                             carMenu(utils.cars[index - 1].getModel(), utils.cars[index - 1].fuel);
                             int carChoose = new Scanner(System.in).nextInt();
@@ -102,6 +103,11 @@ public class Menu {
 
                                 System.out.println("Input volume");
                                 int volume = new Scanner(System.in).nextInt();
+
+                                if (volume > 250) {
+                                    System.out.println("volume couldn't be more than 250 liters");
+                                    continue carMenu;
+                                }
 
                                 money = utils.charge(car, type, money, volume);
 
