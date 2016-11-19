@@ -1,8 +1,8 @@
 public class Car {
 
-    public String model;
+    private final String model;
     public double fuel;
-    public int price;
+    private final int price;
     public boolean opened;
 
     private boolean key;
