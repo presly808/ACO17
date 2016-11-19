@@ -11,13 +11,13 @@ public class ArrayUtils {
             return "[]";
         }
 
-        String res = "";
+        StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < arr.length; i++) {
-            res += arr[i] + " ";
+            sb.append(arr[i] + " ");
         }
 
-        return res;
+        return sb.toString();
     }
 
 }
