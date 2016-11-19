@@ -12,10 +12,16 @@ public class CarTest {
         boolean opened = car.open("12");
         System.out.println(opened);
 
+        boolean opened1 = car.open("yu");
+        System.out.println(opened1);
+
+        boolean closed = car.close("y8u");
+        System.out.println(closed);
+
         String showInfo = car.showAll(car);
         System.out.println(showInfo);
 
-        double resultOfFuelBalance = car.go(30);
+        double resultOfFuelBalance = car.go(50);
         System.out.println(resultOfFuelBalance);
 
     }
