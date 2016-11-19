@@ -21,10 +21,32 @@ public class Car {
         this.opened = false;
     }
 
-    public String carOut(){
+    public boolean open(String key) {
+        if(this.key.equals(key) && this.opened == false) {
+            this.opened = true;
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean close(String key) {
+        if(this.key.equals(key) && this.opened == true) {
+            this.opened = false;
+
+            return true;
+        }
+
+        return false;
+    }
+
+
+
+    public String showInfo(){
         String str = "";
 
-        str = str.format("Model %s\nFuel %s\nFuel consume per km %.2f\nPrice %d",
+        str = str.format("Model %s\nFuel %s\nFuel consume per km %.2f\nPrice %d\n",
                 model, fuel, fuelConsume, price);
 
         return str;
