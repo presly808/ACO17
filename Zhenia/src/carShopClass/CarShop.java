@@ -115,6 +115,8 @@ public class CarShop {
 
             System.out.println("Successfully bought car " + tmp.getModel() + "\n");
 
+            count--;
+
             return tmp;
         }
 

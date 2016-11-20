@@ -24,10 +24,13 @@ public class TestCarShop {
             System.out.println(shop.showAll());
         }
 
-        shop.buy(20000, 1);
+        System.out.println("Is buy test passed: " + testBuy(shop) + "\n");
 
         System.out.println(shop.showAll());
 
+        System.out.println("Is add test passed: " + testAdd(shop) + "\n");
+
+        System.out.println(shop.showAll());
     }
 
     public static boolean testFilter(Car[] arr, CarShop shop) {
@@ -42,5 +45,21 @@ public class TestCarShop {
         }
 
         return isPassed;
+    }
+
+    public static boolean testBuy(CarShop shop) {
+        int prev = shop.getCount();
+
+        shop.buy(20000, 1);
+
+        return prev - 1 == shop.getCount();
+    }
+
+    public static boolean testAdd(CarShop shop) {
+        int prev = shop.getCount();
+
+        shop.addCar(new Car("BMV", 100, 0.2, 100000, "bmvkey"));
+
+        return prev + 1 == shop.getCount();
     }
 }
