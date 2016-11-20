@@ -34,11 +34,10 @@ public class CarShop {
 
     public String filter(int money) {
         String res = "";
-        CarUtils carUtils = new CarUtils();
 
         for (int i = 0; i < this.cars.length; i++) {
             if (this.cars[i].getPrice() <= money) {
-                res += carUtils.showDetails(this.cars[i]) + "\n";
+                res += this.cars[i].showDetails() + "\n";
             }
         }
 
