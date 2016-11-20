@@ -8,7 +8,8 @@ public class Car {
     private int fuel;
     private double price;
     private boolean opened;
-    private int key = 123;
+    private int key;
+    private static final int FUEl_CONSUMPTION = -1;
 
     public Car(String model, int fuel, double price, boolean opened, int key) {
         this.model = model;
@@ -39,7 +40,7 @@ public class Car {
     }
 
     public void go() {
-        fuel -= 1;
+        fuel += FUEl_CONSUMPTION;
     }
 
     public void go(int km) {
