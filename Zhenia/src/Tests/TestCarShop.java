@@ -17,5 +17,22 @@ public class TestCarShop {
         CarShop shop = new CarShop(arr, "My Shop", "Kiev", 0);
 
         System.out.println(shop.showAll());
+
+        System.out.println("Is fitler test passed: " + testFilter(arr, shop));
+
+    }
+
+    public static boolean testFilter(Car[] arr, CarShop shop) {
+        Car[] exp = {arr[0], arr[1]};
+
+        Car[] res = shop.filter(15000);
+
+        boolean isPassed = true;
+
+        for(int i = 0; i < exp.length; i++) {
+            isPassed = isPassed && exp[i].equals(res[i]);
+        }
+
+        return isPassed;
     }
 }

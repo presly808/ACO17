@@ -38,4 +38,25 @@ public class CarShop {
 
         return str;
     }
+
+    public Car[] filter(int money) {
+        Car[] tmpArr = new Car[carArr.length];
+        int j = 0;
+
+        for (int i = 0; i < carArr.length; i++) {
+            if(carArr[i].getPrice() <= money) {
+                tmpArr[j++] = carArr[i];
+            }
+        }
+
+        Car[] res = new Car[j];
+
+        for (int i = 0; i < res.length; i++) {
+            res[i] = tmpArr[i];
+        }
+
+        return res;
+    }
+
+
 }

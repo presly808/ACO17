@@ -72,4 +72,8 @@ public class Car {
             return consumed / fuelConsume;
         }
     }
+
+    public int getPrice() {
+        return price;
+    }
 }
