@@ -1,3 +1,5 @@
+package oop.week2;
+
 /**
  * Created by Victoria on 11/19/2016.
  */
@@ -23,8 +25,8 @@ public class TestCar {
 
         car1.showInfo();
 
-        System.out.println (car1.close(1122));
-        System.out.println (car1.opened);
+        System.out.println(car1.close(1122));
+        System.out.println(car1.opened);
 
         Car car2 = new Car();
         car2.model = "smart";
