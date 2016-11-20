@@ -2,6 +2,15 @@ package car;
 
 public class ShopsGenerator {
 
+    public static CarShop otherCarsShop() {
+        Car car = new Car("gigul", 1000, "gigulKey");
+        Car car1 = new Car("volfswagen", 6000, "volfswagenKey");
+
+        Car[] cars = {car, car1};
+        CarShop carShop = new CarShop("Selled cars", "192.65.34", cars, 500000);
+        return carShop;
+    }
+
     public static CarShop fordShop() {
         Car[] cars = new Car[7];
 

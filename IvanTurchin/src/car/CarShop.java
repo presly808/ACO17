@@ -57,13 +57,15 @@ public class CarShop {
 
             Car[] temp = new Car[this.cars.length];
 
+            int j = 0;
             for (int i = 0; i < this.cars.length; i++) {
                 if (this.cars[i] != null) {
-                    temp[i] = this.cars[i];
+                    temp[i] = this.cars[j];
                 }
+                j++;
             }
 
-            this.cars = temp;
+            this.cars = Arrays.copyOf(temp, temp.length - 1);
             this.amount += money;
 
             return res;
