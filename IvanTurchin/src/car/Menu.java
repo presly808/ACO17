@@ -75,6 +75,7 @@ public class Menu {
                         if (index <= 0 || index > utils.cars.length) {
                             continue toGarage;
                         }
+                        carMenu:
                         while (true) {
                             carMenu(utils.cars[index - 1].getModel(), utils.cars[index - 1].fuel);
                             int carChoose = new Scanner(System.in).nextInt();
@@ -103,12 +104,26 @@ public class Menu {
                                 System.out.println("Input volume");
                                 int volume = new Scanner(System.in).nextInt();
 
+                                if (volume > 250) {
+                                    System.out.println("volume couldn't be more than 250 liters");
+                                    continue carMenu;
+                                }
+
                                 money = utils.charge(car, type, money, volume);
 
                                 System.out.println("Car charged by " + car.fuel + "liters\nyour left " + money);
                             } else if (carChoose == 4) {
-                                boolean isGoing = utils.go(car);
-                                System.out.println(isGoing ? "car is moving" : "nope");
+                                if (car.fuel == 0) {
+                                    System.out.println("fuel is low");
+                                    continue carMenu;
+                                }
+
+                                if (!car.opened) {
+                                    System.out.println("car is closed");
+                                    continue carMenu;
+                                }
+                                utils.go(car);
+                                System.out.println("car is moving");
                             } else if (carChoose == 5) {
                                 System.out.println(utils.showDetails(car));
                             } else if (carChoose == 6) {
