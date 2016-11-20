@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Garage {
 
     private Car[] cars = new Car[10];
+    private int count;
 
     private int lastIndex() {
         int res = 0;
@@ -23,10 +24,10 @@ public class Garage {
             return;
         }
 
-        if (this.cars[this.cars.length - 1] != null) {
+        if (count == this.cars.length) {
             this.cars = Arrays.copyOf(this.cars, this.cars.length * 2);
         }
-
+        count++;
         this.cars[lastIndex()] = car;
     }
 

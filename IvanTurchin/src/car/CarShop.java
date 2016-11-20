@@ -70,7 +70,7 @@ public class CarShop {
     }
 }
 
-class ShopList {
+class ShopsGenerator {
 
     public static CarShop fordShop() {
         Car[] cars = new Car[7];
