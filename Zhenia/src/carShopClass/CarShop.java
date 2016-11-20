@@ -42,6 +42,10 @@ public class CarShop {
         String str = "";
 
         for (int i = 0; i < carArr.length; i++) {
+            if(carArr[i] == null) {
+                continue;
+            }
+
             str += String.format("Car [%d]\n", i);
             str += carArr[i].showInfo();
             str += "\n";
