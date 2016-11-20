@@ -18,7 +18,7 @@ public class CarShop {
 
     public String shopDetails() {
 
-        return String.format("Name - %s\naddress - %\ncars - %\namount - %d",
+        return String.format("Name - %s\naddress - %s\ncars - %d\namount - %d",
                 this.name, this.address, this.cars.length, this.amount);
     }
 
@@ -52,6 +52,7 @@ public class CarShop {
         }
 
         if (money >= this.cars[index - 1].getPrice()) {
+            Car res = this.cars[index - 1];
             this.cars[index - 1] = null;
 
             Car[] temp = new Car[this.cars.length];
@@ -65,7 +66,7 @@ public class CarShop {
             this.cars = temp;
             this.amount += money;
 
-            return this.cars[index - 1];
+            return res;
         }
 
         return null;
@@ -73,62 +74,19 @@ public class CarShop {
 
     public int sellCar(Car car) {
 
-        if (!this.name.contains(car.getModel())) {
-            return 0;
-        }
-
         this.cars = Arrays.copyOf(this.cars, this.cars.length - 1);
         this.cars[this.cars.length - 1] = car;
 
         this.amount += car.getPrice() / 2;
         return car.getPrice() / 2;
     }
-}
 
-class ShopsGenerator {
-
-    public static CarShop fordShop() {
-        Car[] cars = new Car[7];
-
-        for (int i = 0; i < 7; i++) {
-            String name = "ford.type" + (i + 1);
-            int price = 2000 + (i * 100);
-            String key = "ford.type" + (i + 1) + "Key";
-
-            cars[i] = new Car(name, price, key);
-        }
-
-        CarShop carShop = new CarShop("Ford shop", "192.23.234",cars, 50000);
-        return carShop;
+    public Car[] getCars() {
+        return cars;
     }
 
-    public static CarShop audiShop() {
-        Car[] cars = new Car[7];
-
-        for (int i = 0; i < 7; i++) {
-            String name = "audi.type" + (i + 1);
-            int price = 8000 + (i * 100);
-            String key = "audi.type" + (i + 1) + "Key";
-
-            cars[i] = new Car(name, price, key);
-        }
-
-        CarShop carShop = new CarShop("Audi shop", "192.93.544",cars, 100000);
-        return carShop;
-    }
-
-    public static CarShop bmwShop() {
-        Car[] cars = new Car[7];
-
-        for (int i = 0; i < 7; i++) {
-            String name = "bmw.type" + (i + 1);
-            int price = 6000 + (i * 100);
-            String key ="bmw.type" + (i + 1) + "Key";
-
-            cars[i] = new Car(name, price, key);
-        }
-
-        CarShop carShop = new CarShop("Bmw shop", "192.23.234",cars, 50000);
-        return carShop;
+    public int getAmount() {
+        return amount;
     }
 }
+
