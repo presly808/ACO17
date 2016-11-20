@@ -30,7 +30,8 @@ public class Car {
     }
 
     public boolean go() {
-        if (fuel < 20) {
+        int minFuel = 20;
+        if (fuel < minFuel) {
             return false;
         }
         return true;
@@ -40,7 +41,7 @@ public class Car {
         String str = new String("");
         //return fuel + " " + model;
         str = String.format("fuel %d, price %d, model %s, keyOpen %s", fuel, price, model, keyOpen, "keyClose %s", keyClose);
-        System.out.println(str);
+      //  System.out.println(str);
 
 
         return str;
