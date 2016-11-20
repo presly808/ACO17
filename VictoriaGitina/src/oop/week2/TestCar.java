@@ -37,6 +37,18 @@ public class TestCar {
         car2.keyClose = 1111;
 
         car2.showInfo();
+        System.out.println("whether car " +  car2.model.toUpperCase()  + " can go:" +  car2.go());
+
+        Car car3 = new Car();
+        car3.model = "lanos";
+        car3.fuel = 19;
+        car3.price =  12000;
+        car3.opened = true;
+        car3.keyOpen = 2222;
+        car3.keyClose = 1000;
+
+        car3.showInfo();
+        System.out.println("whether car " +  car3.model.toUpperCase()  + " can go:" + car3.go());
 
 
     }
