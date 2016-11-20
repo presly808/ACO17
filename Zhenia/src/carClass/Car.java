@@ -42,12 +42,8 @@ public class Car {
     }
 
     public String showInfo(){
-        String str = "";
-
-        str = str.format("Model %s\nFuel %s\nFuel consume per km %.2f\nPrice %d\n",
+        return String.format("Model %s\nFuel %s\nFuel consume per km %.2f\nPrice %d\n",
                 model, fuel, fuelConsume, price);
-
-        return str;
     }
 
     public boolean go(){
@@ -75,5 +71,9 @@ public class Car {
 
     public int getPrice() {
         return price;
+    }
+
+    public String getModel() {
+        return model;
     }
 }

@@ -18,7 +18,15 @@ public class TestCarShop {
 
         System.out.println(shop.showAll());
 
-        System.out.println("Is fitler test passed: " + testFilter(arr, shop));
+        System.out.println("Is filter test passed: " + testFilter(arr, shop) + "\n");
+
+        if(shop.addCar(new Car("Moskvich", 120, 1.5, 25000, "carkey"))) {
+            System.out.println(shop.showAll());
+        }
+
+        shop.buy(20000, 1);
+
+        System.out.println(shop.showAll());
 
     }
 
