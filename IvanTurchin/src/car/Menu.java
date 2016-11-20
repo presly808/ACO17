@@ -113,8 +113,17 @@ public class Menu {
 
                                 System.out.println("Car charged by " + car.fuel + "liters\nyour left " + money);
                             } else if (carChoose == 4) {
-                                boolean isGoing = utils.go(car);
-                                System.out.println(isGoing ? "car is moving" : "nope");
+                                if (car.fuel == 0) {
+                                    System.out.println("fuel is low");
+                                    continue carMenu;
+                                }
+
+                                if (!car.opened) {
+                                    System.out.println("car is closed");
+                                    continue carMenu;
+                                }
+                                utils.go(car);
+                                System.out.println("car is moving");
                             } else if (carChoose == 5) {
                                 System.out.println(utils.showDetails(car));
                             } else if (carChoose == 6) {
