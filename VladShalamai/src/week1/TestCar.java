@@ -6,7 +6,7 @@ package week1;
 public class TestCar {
 
     public static void main(String[] args) {
-        Car car = new Car("bmw", 10, 5000, true, 123);
+        Car car = new Car("bmw", 10, 5000, true, 123, 1);
 
         testShowInfo(car);
         testCarGo(car);

@@ -48,7 +48,9 @@ public class CarShop {
     public String showAll() {
         String res = "all cars \n";
         for (int i = 0; i < cars.length; i++) {
-            res += cars[i].showInfo() + "\n";
+            if (cars[i] != null) {
+                res += cars[i].showInfo() + "\n";
+            }
         }
 
         return res;
@@ -57,7 +59,7 @@ public class CarShop {
     public String filter(int money) {
         String res = "all cars \n";
         for (int i = 0; i < cars.length; i++) {
-            if (cars[i].getPrice() <= money) {
+            if (cars[i] != null && cars[i].getPrice() <= money) {
                 res += cars[i].showInfo() + "\n";
             }
         }
