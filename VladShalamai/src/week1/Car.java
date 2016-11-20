@@ -1,5 +1,7 @@
+package week1;
+
 /**
- * Created by ¬Î‡‰ on 19.11.2016.
+ * Created by –í–ª–∞–¥ on 19.11.2016.
  */
 public class Car {
     private String model;
@@ -8,11 +10,12 @@ public class Car {
     private boolean opened;
     private int key = 123;
 
-    public void init(String model, int fuel, double price, boolean opened) {
+    public Car(String model, int fuel, double price, boolean opened, int key) {
         this.model = model;
         this.fuel = fuel;
         this.price = price;
         this.opened = opened;
+        this.key = key;
     }
 
     public double getPrice() {
