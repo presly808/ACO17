@@ -17,7 +17,7 @@ public class TestCar {
 
     public static void testShowInfo(Car car) {
         System.out.println("method showInfo() is " +
-                car.showInfo().equals("model: bmw, fuel: 10, price: 5000,00, opened true"));
+                car.showInfo().equals("id:1 model: bmw, fuel: 10, price: 5000,00, opened true"));
     }
 
     public static void testCarGo(Car car) {

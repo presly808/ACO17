@@ -25,4 +25,14 @@ public class CarUtils {
         String[] models = {"bmw", "ford", "opel", "mazda"};
         return models[(int) (Math.random() * models.length)];
     }
+
+    public static int amountCar(CarShop carShop) {
+        int amount = 0;
+        for (int i = 0; i < carShop.getCars().length; i++) {
+            if (carShop.getCars()[i] != null) {
+                amount++;
+            }
+        }
+        return amount;
+    }
 }

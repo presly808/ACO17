@@ -67,5 +67,34 @@ public class CarShop {
         return res;
     }
 
+    public Car buy(int money, int id) {
 
+        Car car;
+
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i] != null && cars[i].getId() == id && money >= cars[i].getPrice()) {
+                car = cars[i];
+                budget += money;
+                cars[i] = null;
+                System.out.println("this car is yours)");
+                return car;
+            }
+        }
+
+        System.out.println("sorry, no car with the id or not enough money(");
+        return null;
+    }
+
+
+    public void addCar(Car car) {
+
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i] == null) {
+                cars[i] = car;
+                return;
+            }
+        }
+
+        System.out.println("sorry, there is no place(");
+    }
 }
