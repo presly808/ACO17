@@ -1,5 +1,7 @@
 package car;
 
+import java.util.Arrays;
+
 public class CarShop {
 
     private String name;
@@ -67,6 +69,19 @@ public class CarShop {
         }
 
         return null;
+    }
+
+    public int sellCar(Car car) {
+
+        if (!this.name.contains(car.getModel())) {
+            return 0;
+        }
+
+        this.cars = Arrays.copyOf(this.cars, this.cars.length - 1);
+        this.cars[this.cars.length - 1] = car;
+
+        this.amount += car.getPrice() / 2;
+        return car.getPrice() / 2;
     }
 }
 
