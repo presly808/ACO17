@@ -1,0 +1,117 @@
+1. 	
+
+        (3 hours)
+
+        If you have problems with classwork material, just refresh your memory with the help of next videos
+		https://www.youtube.com/watch?v=SRNEEQkVW_Y&index=1&list=PLvmHg49t5OCSpYU_F1hFD1ufgQVduUHQW
+		https://www.youtube.com/watch?v=GTL9V8U2-50&index=2&list=PLvmHg49t5OCSpYU_F1hFD1ufgQVduUHQW
+
+	Primitive vs Refernce type
+	
+	Frame(method memory) and Head(object container) see visualizer
+
+	Class and object(instance)
+
+	lifecycle of object
+	phases: create, use, destroy
+
+	Creator - write methods or class
+	User - uses it
+
+	JavaNamingConvetion
+	
+	class - first character is upper case
+	package, variable - is noun with 1-st lower case sybol
+	method - verb, lower case 
+
+	CamelCase http://java.about.com/od/javasyntax/a/nameconventions.htm
+
+	Class - structure
+	object - instance from structure
+
+	compare static method vs non-static
+		
+	<MyType> <name> = new <MyType>();
+	How many actions in above code line
+
+	this keyword
+
+	Debug mod in idea
+
+	String class (see examples) 
+	http://docs.oracle.com/javase/7/docs/api/java/lang/String.html
+	http://habrahabr.ru/post/260767/
+
+ Visualize all classwork via http://www.pythontutor.com/visualize.html#mode=edit or IDEA debug mode
+
+
+Practical part
+
+	1. ContactList Application (3 hours)
+        - addContact
+        - removeLast
+        - findContact
+        - removeContact
+
+        -*updateContactInfo
+
+        - showAllContacts
+
+        - showFirstFiveContacts
+        - showLastFiveContacts
+
+        - showLifeContacts
+        - showKievstarContacts
+
+        (name must be unique in contact list)
+        before adding do validation
+        user can put wrong info like that
+            7sdf463dfg276
+        before saving check all symbols
+
+
+        Choose one of next tasks (2 or 3) (3 hours)
+        
+	2. Написать основные классы Студент, Предмет, если нужно будет дописывать новые
+   	Предмет содержит поля:
+   		имя
+   		количество часов в семестре
+   		количество проработанных часов студентом
+   		оценка студента за предмет
+
+   	методы:
+   		сдать экзамен
+   		показать информацию о предмете
+   		получить оценку студента за предмет
+
+   	Студент
+   	поля:
+   		Имя
+   		Адрес
+   		Предметы
+
+   	методы:
+   		учиться
+   		добавить предмет
+   		удалить предмет из списка последний
+   		показать всю информацию о предметах
+   		получить средний бал за все предметы 
+
+	3. Implement
+       	class Parking
+           methods
+           - addMotoOnLastFreePlace
+           - takeLastMoto
+           - addMotoByPlaceNumber
+           - takeMotoByPlaceNumber
+           - clearGaragePlaces
+           - open
+           - close
+           - changeAddress
+           - showAllInGarage
+
+       class Biker
+           methods
+           - buyMotorcycle
+           - sellMotorcycle
+           - fixMotorcycle	
