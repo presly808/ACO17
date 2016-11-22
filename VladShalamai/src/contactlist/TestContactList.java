@@ -8,7 +8,7 @@ public class TestContactList {
     private static final int SIZE_OF_LIST = 10;
 
     public static void main(String[] args) {
-        ContactList list = new ContactList("Friend");
+        ContactList list = new ContactList("Friends");
 
         for (int i = 0; i < SIZE_OF_LIST; i++) {
             list.getContacts()[i] = ContactUtils.generateContact(i);
@@ -21,10 +21,10 @@ public class TestContactList {
         testShowKievstarContacts(list);
         testAddContact(list);
         testRemoveContact(list);
-        System.out.println(list.showAllContacts());
+        testFindContact(list);
+        testRemoveLast(list);
 
     }
-
 
     public static void testShowAllContacts(ContactList list) {
 
@@ -78,6 +78,19 @@ public class TestContactList {
 
         list.removeContact("Anton");
         System.out.println("method removeContact() is " + !list.showAllContacts().contains("Anton"));
+
+    }
+
+    private static void testRemoveLast(ContactList list) {
+        list.removeLast();
+        System.out.println("method removeLast() is " + !list.showAllContacts().contains("Masha"));
+    }
+
+    private static void testFindContact(ContactList list) {
+
+        String expected = "name is Masha, email: masha@gmail.com, phoneNumber: 097 980 34 23";
+        String actual = list.findContact("Masha");
+        System.out.println("method findContact() is " + actual.equals(expected));
 
     }
 

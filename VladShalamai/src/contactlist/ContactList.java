@@ -132,4 +132,24 @@ public class ContactList {
         contacts[Contact.getNumberOfContact() - 1] = null;
         Contact.setNumberOfContact(Contact.getNumberOfContact() - 1);
     }
+
+    public void removeLast() {
+        contacts[Contact.getNumberOfContact() - 1] = null;
+        Contact.setNumberOfContact(Contact.getNumberOfContact() - 1);
+    }
+
+    public String findContact(String name) {
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < MAX_SIZE; i++) {
+            if (contacts[i] != null && contacts[i].getName().equals(name)) {
+                sb.append(contacts[i].showInfo());
+                return sb.toString();
+            }
+        }
+
+        return "contact does not exist";
+
+    }
 }
