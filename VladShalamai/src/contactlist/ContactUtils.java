@@ -13,7 +13,7 @@ public class ContactUtils {
 
     public static String generateName(int i) {
 
-        String[] names = {"John", "Anton", "Vlad", "Oksana", "Lida", "Maks", "Mark", "Alina", "Karina", "Volodymyr"};
+        String[] names = {"John", "Anton", "Vlad", "Oksana", "Lida", "Maks", "Mark", "Alina", "Karina", "Volodymyr","John", "Anton", "Vlad", "Oksana", "Lida", "Maks", "Mark", "Alina", "Karina", "Volodymyr"};
         name = names[i];
         return name;
     }

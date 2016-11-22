@@ -19,7 +19,12 @@ public class TestContactList {
         testShowLastFiveContacts(list);
         testShowLifeContacts(list);
         testShowKievstarContacts(list);
+        testAddContact(list);
+        testRemoveContact(list);
+        System.out.println(list.showAllContacts());
+
     }
+
 
     public static void testShowAllContacts(ContactList list) {
 
@@ -60,5 +65,20 @@ public class TestContactList {
                         && !list.showKievstarContacts().contains("093")));
     }
 
+    private static void testAddContact(ContactList list) {
+        list.addContact("Masha", "masha@gmail.com", "097 980 34 23");
+
+        String actual = list.getContacts()[Contact.getNumberOfContact() - 1].showInfo();
+        String expected = "name is Masha, email: masha@gmail.com, phoneNumber: 097 980 34 23";
+
+        System.out.println("method addContact() is " + actual.equals(expected));
+    }
+
+    private static void testRemoveContact(ContactList list) {
+
+        list.removeContact("Anton");
+        System.out.println("method removeContact() is " + !list.showAllContacts().contains("Anton"));
+
+    }
 
 }
