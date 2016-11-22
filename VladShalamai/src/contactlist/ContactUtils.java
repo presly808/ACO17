@@ -25,10 +25,10 @@ public class ContactUtils {
 
     public static String generatePoneNumber() {
 
-        String[] operators = {"095", "097", "050", "098", "093"};
+        String[] operators = {"095", "097", "093"};
 
         StringBuilder sb = new StringBuilder();
-        sb.append(operators[CarUtils.generateNum(0, 5)]).append(" ");
+        sb.append(operators[CarUtils.generateNum(0, 3)]).append(" ");
         sb.append(String.valueOf(CarUtils.generateNum(100, 999))).append(" ");
         sb.append(String.valueOf(CarUtils.generateNum(10, 99))).append(" ");
         sb.append(String.valueOf(CarUtils.generateNum(10, 99)));

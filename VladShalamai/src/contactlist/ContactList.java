@@ -60,5 +60,31 @@ public class ContactList {
         return sb.toString();
     }
 
+    public String showLifeContacts() {
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < MAX_SIZE; i++) {
+            if (contacts[i] != null && contacts[i].getPhoneNumber().substring(0, 3).equals("093")) {
+                sb.append(contacts[i].showInfo()).append("\n");
+            }
+        }
+
+        return sb.toString();
+    }
+
+    public String showKievstarContacts() {
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < MAX_SIZE; i++) {
+            if (contacts[i] != null && contacts[i].getPhoneNumber().substring(0, 3).equals("097")) {
+                sb.append(contacts[i].showInfo()).append("\n");
+            }
+        }
+
+        return sb.toString();
+    }
+
 
 }

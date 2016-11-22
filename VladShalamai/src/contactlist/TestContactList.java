@@ -14,13 +14,11 @@ public class TestContactList {
             list.getContacts()[i] = ContactUtils.generateContact(i);
         }
 
-        //System.out.println(list.showAllContacts());
-        //System.out.println(list.showFirstFiveContacts());
-        //System.out.println(list.showLastFiveContacts());
-
         testShowAllContacts(list);
         testShowFirstFiveContacts(list);
         testShowLastFiveContacts(list);
+        testShowLifeContacts(list);
+        testShowKievstarContacts(list);
     }
 
     public static void testShowAllContacts(ContactList list) {
@@ -37,12 +35,30 @@ public class TestContactList {
                         && list.showFirstFiveContacts().contains("Lida")
                         && !list.showFirstFiveContacts().contains("Maks")));
     }
+
     public static void testShowLastFiveContacts(ContactList list) {
 
         System.out.println("method showLastFiveContacts() is " +
-                (list.showLastFiveContacts().contains("Maks")
+                        (list.showLastFiveContacts().contains("Maks")
                         && list.showLastFiveContacts().contains("Volodymyr")
                         && !list.showLastFiveContacts().contains("Lida")));
     }
+
+    public static void testShowLifeContacts(ContactList list) {
+
+        System.out.println("method showLifeContacts() is " +
+                        (list.showLifeContacts().contains("093")
+                        && !list.showLifeContacts().contains("095")
+                        && !list.showLifeContacts().contains("097")));
+    }
+
+    public static void testShowKievstarContacts(ContactList list) {
+
+        System.out.println("method showKievstarContacts() is " +
+                        (list.showKievstarContacts().contains("097")
+                        && !list.showKievstarContacts().contains("095")
+                        && !list.showKievstarContacts().contains("093")));
+    }
+
 
 }
