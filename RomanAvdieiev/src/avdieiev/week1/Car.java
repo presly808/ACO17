@@ -2,16 +2,15 @@ package avdieiev.week1;
 
 public class Car {
 
-    public String model;
-    public boolean opened;
+    private String model;
+    private boolean opened;
+    private double fuel;
+    private double price;
+    private String originKey;
+    private double consumption;
 
-    public double fuel;
-    public double price;
-    public String originKey;
-    public double consumption;
 
-
-    public void init(String model, boolean opened, double fuel, double price, String originKey, double consumption) {
+    public Car(String model, boolean opened, double fuel, double price, String originKey, double consumption) {
         Car car = this;
         // this.model = model;
         car.model = model;
@@ -30,13 +29,10 @@ public class Car {
         return opened;
     }
 
-    public String ShowAll(Car car) {
-        if (car == null) {
-            return null;
-        }
-        return "Model - " + model + "; " + " Opened - " + opened + "; " + " Fuel - " + fuel + "; " +
-                " Price - " + price + "; " + "Consumption " + consumption;
-        //    return String.format("model %s, fuel %d, price %.2f", car.model, car.fuel, car.price);
+    public String ShowAll() {
+//        return "Model - " + model + "; " + " Opened - " + opened + "; " + " Fuel - " + fuel + "; " +
+//                " Price - " + price + "; " + "Consumption " + consumption;
+        return String.format("model %s, opened %s, fuel %.2f, price %.2f, consumption %.2f", model, opened, fuel, price, consumption);
     }
 
     public double go(int km) {
