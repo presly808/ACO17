@@ -24,12 +24,41 @@ public class ContactList {
     public String showAllContacts() {
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < Contact.getNumberOfContact(); i++) {
-            sb.append(contacts[i].showInfo()).append("\n");
+        for (int i = 0; i < MAX_SIZE; i++) {
+            if (contacts[i] != null) {
+                sb.append(contacts[i].showInfo()).append("\n");
+            }
         }
 
         return sb.toString();
 
     }
+
+    public String showFirstFiveContacts() {
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < 5; i++) {
+            if (contacts[i] != null) {
+                sb.append(contacts[i].showInfo()).append("\n");
+            }
+        }
+
+        return sb.toString();
+    }
+
+    public String showLastFiveContacts() {
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = Contact.getNumberOfContact() - 5; i < MAX_SIZE; i++) {
+            if (contacts[i] != null) {
+                sb.append(contacts[i].showInfo()).append("\n");
+            }
+        }
+
+        return sb.toString();
+    }
+
 
 }
