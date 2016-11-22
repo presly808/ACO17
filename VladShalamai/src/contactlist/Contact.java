@@ -49,4 +49,22 @@ public class Contact {
     public void setId(int id) {
         this.id = id;
     }
+
+    public static int getNumberOfContact() {
+        return numberOfContact;
+    }
+
+    public static void setNumberOfContact(int numberOfContact) {
+        Contact.numberOfContact = numberOfContact;
+    }
+
+    public String showInfo() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("name is ").append(this.name).append(", ");
+        sb.append("email: ").append(this.email).append(", ");
+        sb.append("phoneNumber: ").append(this.phoneNumber);
+
+        return sb.toString();
+    }
 }
