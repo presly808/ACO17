@@ -51,4 +51,24 @@ public class Student {
 
         System.out.println("subject does not exist");
     }
+
+    public double getGPA() {
+        int sum = 0;
+
+        for (int i = 0; i < amountOfSubject; i++) {
+            sum += subjects[i].getMark();
+        }
+
+        return (double)sum / amountOfSubject;
+    }
+
+    public String showAllInfo() {
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < amountOfSubject; i++) {
+            sb.append(subjects[i].showInfo()).append("\n");
+        }
+        return sb.toString();
+    }
 }

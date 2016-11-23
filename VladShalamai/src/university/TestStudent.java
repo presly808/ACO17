@@ -15,6 +15,25 @@ public class TestStudent {
         }
 
         testStudy(student);
+        testGetGPA(student);
+        testShowAllInfo(student);
+
+    }
+
+    private static void testShowAllInfo(Student student) {
+
+        String actual = student.showAllInfo();
+
+        System.out.println("method showAllInfo() is " +
+                (actual.contains("politology") && actual.contains("law")));
+
+    }
+
+    private static void testGetGPA(Student student) {
+
+        double gpa = student.getGPA();
+        System.out.println("method getGPA() is " + (gpa >= 3));
+
     }
 
     private static void testStudy(Student student) {
