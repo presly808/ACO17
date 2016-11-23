@@ -152,4 +152,18 @@ public class ContactList {
         return "contact does not exist";
 
     }
+
+    public void updateContactInfo(String name, String email, String phoneNumber) {
+
+        for (int i = 0; i < MAX_SIZE; i++) {
+            if (contacts[i] != null && contacts[i].getName().equals(name)) {
+
+                contacts[i].setEmail(email);
+                contacts[i].setPhoneNumber(phoneNumber);
+                return;
+            }
+        }
+
+        System.out.println("contact does not exist");
+    }
 }

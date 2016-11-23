@@ -23,8 +23,9 @@ public class TestContactList {
         testRemoveContact(list);
         testFindContact(list);
         testRemoveLast(list);
-
+        testUpdateContactInfo(list);
     }
+
 
     public static void testShowAllContacts(ContactList list) {
 
@@ -93,5 +94,18 @@ public class TestContactList {
         System.out.println("method findContact() is " + actual.equals(expected));
 
     }
+
+    private static void testUpdateContactInfo(ContactList list) {
+
+        list.updateContactInfo("Mark", "job@gmail.com", "093 960 94 24");
+
+        String expected = "name is Mark, email: job@gmail.com, phoneNumber: 093 960 94 24";
+        String actual = list.findContact("Mark");
+
+        System.out.println("method updateContactInfo() is " + actual.equals(expected));
+
+
+    }
+
 
 }
