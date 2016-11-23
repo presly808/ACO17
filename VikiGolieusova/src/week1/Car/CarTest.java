@@ -4,7 +4,7 @@ package week1.Car;
 public class CarTest {
     public static void main(String[] args) {
 
-        Car car = new Car("audi", "yu", 40, 6, 15000.00);
+        Car car = new Car(1,"audi", "yu", 40, 6, 15000.00);
 
         //tests for opening car
         System.out.println("method opened is " + !car.open("12"));
