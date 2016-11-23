@@ -1,19 +1,23 @@
-package week1;
+package week1.Car;
 
 public class Car {
 
-    public String model;
+    private String model;
 
     private String originalKey;
-    public boolean opened;
+    private boolean opened;
 
-    public double fuel;
-    public int consumption;
+    private double fuel;
+    private int consumption;
 
-    public double price;
+    private double price;
 
 
-    public void init(String model, String originalKey, double fuel, int consumption, double price) {
+    public double getPrice() {
+        return price;
+    }
+
+    public Car(String model, String originalKey, double fuel, int consumption, double price) {
         this.model = model;
         this.originalKey = originalKey;
         this.fuel = fuel;
@@ -35,11 +39,9 @@ public class Car {
         return opened;
     }
 
-    public String showAll(Car car) {
-        if (car == null) {
-            return null;
-        }
-        return String.format("model %s, fuel %.2f, consumption %d, price %.2f", car.model, car.fuel, car.consumption, car.price);
+    public String showInfo() {
+
+        return String.format("model %s, fuel %.2f, consumption %d, price %.2f", model, fuel, consumption, price);
     }
 
     public double go(int km) {
