@@ -9,7 +9,7 @@ public class TestStudent {
 
         Student student = new Student("John", new Address("Kiev", "Nizhynska", "12"));
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             student.getSubjects()[i] = SubjectUtils.generateSubject(student.getAmountOfSubject());
             student.setAmountOfSubject(student.getAmountOfSubject() + 1);
         }
@@ -17,6 +17,23 @@ public class TestStudent {
         testStudy(student);
         testGetGPA(student);
         testShowAllInfo(student);
+        testAddSubject(student);
+        testRemoveLastSubject(student);
+
+    }
+
+    private static void testRemoveLastSubject(Student student) {
+
+        student.removeLastSubject();
+
+        System.out.println("method removeLastSubject() is " + !student.showAllInfo().contains("English"));
+    }
+
+    private static void testAddSubject(Student student) {
+
+        student.addSubject(SubjectUtils.generateSubject(student.getAmountOfSubject()));
+
+        System.out.println("method addSubject() is " + student.showAllInfo().contains("English"));
 
     }
 

@@ -59,7 +59,7 @@ public class Student {
             sum += subjects[i].getMark();
         }
 
-        return (double)sum / amountOfSubject;
+        return (double) sum / amountOfSubject;
     }
 
     public String showAllInfo() {
@@ -70,5 +70,26 @@ public class Student {
             sb.append(subjects[i].showInfo()).append("\n");
         }
         return sb.toString();
+    }
+
+    public void addSubject(Subject subject) {
+
+        if (amountOfSubject == MAX_SIZE) {
+            System.out.println("no places");
+            return;
+        }
+
+        subjects[amountOfSubject] = subject;
+        amountOfSubject++;
+
+    }
+
+    public void removeLastSubject() {
+
+        if (amountOfSubject == 0) {
+            return;
+        }
+
+        subjects[--amountOfSubject] = null;
     }
 }
