@@ -10,6 +10,7 @@ public class CarShop {
     private double money;
     private Car[] arrCars;
 
+
     public CarShop(String name, String adress, double budget, Car[] arrCars) {
         this.name = name;
         this.adress = adress;
@@ -61,8 +62,28 @@ public class CarShop {
         }
         return strCars;
 
-//    public double filter(double money) {
-//
+
     }
 
+    public String filter(double money) {
+        String filterResult = "Sorry, there is no car, which corresponds this price :( ";
+        for (int i = 0; i < arrCars.length; i++) {
+            if (arrCars[i].getPrice() <= money) {
+                filterResult = arrCars[i].ShowAll();
+                System.out.println(filterResult);
+            }
+        }
+        return filterResult;
+    }
+
+    public Car buy(double money, int autoID){
+        Car garage = arrCars[arrCars.length-1];
+        for (int i = 0; i < arrCars.length; i++) {
+            if (arrCars[i].getPrice() <= money && autoID == arrCars[i].getAutoID()) {
+                budget = budget + arrCars[i].getPrice();
+                arrCars[i] = null;
+            }
+        }
+        return  garage;
+    }
 }
