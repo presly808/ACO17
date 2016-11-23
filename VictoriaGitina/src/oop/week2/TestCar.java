@@ -3,54 +3,65 @@ package oop.week2;
 /**
  * Created by Victoria on 11/19/2016.
  */
+
+
 public class TestCar {
     public static void main(String[] args) {
-        Car car = new Car();
-        car.model = "Ford";
-        car.fuel = 120;
-        car.price = 200000;
-        car.opened = true;
-        car.keyOpen = 20;
-        car.keyClose = 500;
+        Car car0 = new Car("zebra");
+        Car car1 = new Car("skoda");
+        Car car2 = new Car("lada");
+        Car car3 = new Car("daewoo");
 
-        car.showInfo();
+        Car[] cars = {car0, car1, car2, car3};
 
-        Car car1 = new Car();
-        car1.model = "skoda";
-        car1.fuel = 200;
-        car1.price = 300000;
-        car1.opened = false;
-        car1.keyOpen = 2222;
-        car1.keyClose = 1111;
+        car0.setFuel(120);
+        car0.setPrice(200000);
+        car0.setOpened(true);
+        car0.setKeyOpen(20);
+        car0.setKeyClose(500);
 
-        car1.showInfo();
+        car1.setFuel(200);
+        car1.setPrice(300000);
+        car1.setOpened(false);
+        car1.setKeyOpen(2222);
+        car1.setKeyClose(1111);
 
         System.out.println(car1.close(1122));
-        System.out.println(car1.opened);
+        System.out.println(car1.isOpened());
 
-        Car car2 = new Car();
-        car2.model = "smart";
-        car2.fuel = 215;
-        car2.price = 40000;
-        car2.opened = true;
-        car2.keyOpen = 2222;
-        car2.keyClose = 1111;
+        car2.setModel("smart");
+        car2.setFuel(215);
+        car2.setPrice(40000);
+        car2.setOpened(false);
+        car2.setKeyOpen(5555);
+        car2.setKeyClose(4444);
 
-        car2.showInfo();
-        System.out.println("whether car " +  car2.model.toUpperCase()  + " can go:" +  car2.go());
+        car3.setModel("lanos");
+        car3.setFuel(19);
+        car3.setPrice(12000);
+        car3.setOpened(true);
+        car3.setKeyOpen(3333);
+        car3.setKeyClose(1000);
 
-        Car car3 = new Car();
-        car3.model = "lanos";
-        car3.fuel = 19;
-        car3.price =  12000;
-        car3.opened = true;
-        car3.keyOpen = 2222;
-        car3.keyClose = 1000;
+        for (int i = 0; i < cars.length; i++) {
+            System.out.println("info about car #" + i + ": " + cars[i].getInfoString());
+            System.out.println("whether car " + cars[i].getModel().toUpperCase() + " can go: " + cars[i].go());
+            System.out.println();
+        }
 
-        car3.showInfo();
-        System.out.println("whether car " +  car3.model.toUpperCase()  + " can go:" + car3.go());
+        System.out.println("the most expensive car is  " + getCarWithMaxPrice(cars).getInfoString());
+    }
 
-
+    public static Car getCarWithMaxPrice(Car[] cars) {
+        int max = 0;
+        int indexOfMax = 0;
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].getPrice() > max) {
+                max = cars[i].getPrice();
+                indexOfMax = i;
+            }
+        }
+        return cars[indexOfMax];
     }
 
 }
