@@ -2,6 +2,8 @@ package week1.Car;
 
 public class Car {
 
+    private int id ;
+
     private String model;
 
     private String originalKey;
@@ -17,7 +19,12 @@ public class Car {
         return price;
     }
 
-    public Car(String model, String originalKey, double fuel, int consumption, double price) {
+    public int getId() {
+        return id;
+    }
+
+    public Car(int id, String model, String originalKey, double fuel, int consumption, double price) {
+        this.id = id;
         this.model = model;
         this.originalKey = originalKey;
         this.fuel = fuel;
@@ -41,7 +48,7 @@ public class Car {
 
     public String showInfo() {
 
-        return String.format("model %s, fuel %.2f, consumption %d, price %.2f", model, fuel, consumption, price);
+        return String.format("id %d, model %s, fuel %.2f, consumption %d, price %.2f", id, model, fuel, consumption, price);
     }
 
     public double go(int km) {
@@ -54,4 +61,17 @@ public class Car {
 
         return fuel;
     }
+//
+//    @Override
+//    public String toString() {
+//        return "Car{" +
+//                "id=" + id +
+//                ", model='" + model + '\'' +
+//                ", originalKey='" + originalKey + '\'' +
+//                ", opened=" + opened +
+//                ", fuel=" + fuel +
+//                ", consumption=" + consumption +
+//                ", price=" + price +
+//                '}';
+//    }
 }
