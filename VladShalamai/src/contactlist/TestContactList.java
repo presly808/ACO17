@@ -11,6 +11,7 @@ public class TestContactList {
 
     public static void main(String[] args) {
         ContactList list = new ContactList("Friends");
+        list.setNumberOfContact(10);
 
         for (int i = 0; i < SIZE_OF_LIST; i++) {
             list.getContacts()[i] = ContactUtils.generateContact(i);
@@ -71,7 +72,7 @@ public class TestContactList {
     private static void testAddContact(ContactList list) {
         list.addContact("Masha", "masha@gmail.com", "097 980 34 23");
 
-        String actual = list.getContacts()[Contact.getNumberOfContact() - 1].showInfo();
+        String actual = list.getContacts()[list.getNumberOfContact() - 1].showInfo();
         String expected = "name is Masha, email: masha@gmail.com, phoneNumber: 097 980 34 23";
 
         System.out.println("method addContact() is " + actual.equals(expected));
