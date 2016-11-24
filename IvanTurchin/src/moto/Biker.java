@@ -8,6 +8,8 @@ public class Biker {
     private int money;
     private boolean tools;
 
+    private MotoShop shop = new MotoShop();
+
     private Motorcycle motorcycle = null;
 
     public Biker(String name, String phone, String address, int money) {
@@ -18,7 +20,6 @@ public class Biker {
     }
 
     public void buyMotorcycle(String model) {
-        MotoShop shop = new MotoShop();
         Motorcycle motorcycle = shop.buyMoto(model, this.money);
 
         if (motorcycle == null || this.motorcycle != null) {
@@ -30,8 +31,7 @@ public class Biker {
     }
 
     public void buyTools() {
-        MotoShop motoShop = new MotoShop();
-        boolean tools = motoShop.buyTools(this.money);
+        boolean tools = shop.buyTools(this.money);
 
         if (tools) {
             this.tools = tools;
