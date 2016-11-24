@@ -10,6 +10,8 @@ public class Student {
     private int money;
     private double energy;
 
+    private static final String LEARN_INIT_KEY = "%i9vn!8520:/#";
+
     public Student(String name, String address, int money) {
         this.name = name;
         this.address = address;
@@ -63,7 +65,7 @@ public class Student {
         }
 
         this.energy -= this.subjects[index].getEnergyByPoint();
-        this.subjects[index].learnInit("%i9vn!8520:/#");
+        this.subjects[index].learnInit(LEARN_INIT_KEY);
     }
 
     private int lastIndex() {

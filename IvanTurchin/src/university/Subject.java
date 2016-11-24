@@ -14,6 +14,7 @@ public class Subject {
     private int[] marks = new int[1];
 
     private int countOfMarks = 0;
+    private static final String LEARN_INIT_KEY = "%i9vn!8520:/#";
 
     public Subject(String name, double toLearn, double energyByPoint) {
         this.name = name;
@@ -76,7 +77,7 @@ public class Subject {
     // method that gives access to local private variable <learned>
     // this method needs to realize method <learn> in object <Student>
     public void learnInit(String key) {
-        if (!key.equals("%i9vn!8520:/#")) {
+        if (!key.equals(LEARN_INIT_KEY)) {
             return;
         }
 
