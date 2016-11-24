@@ -1,6 +1,6 @@
-package university;
+package utils;
 
-import week2.CarUtils;
+import university.Subject;
 
 public class SubjectUtils {
 

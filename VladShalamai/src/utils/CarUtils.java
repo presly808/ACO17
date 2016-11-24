@@ -1,6 +1,6 @@
-package week2;
+package utils;
 
-import week1.Car;
+import week2.CarShop;
 
 public class CarUtils {
 

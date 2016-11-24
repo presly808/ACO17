@@ -17,8 +17,8 @@ public class TestContact {
         String actual = contact.showInfo();
         String expected = "name is George, email: george.@gmail.com, phoneNumber: 095 895 34 23";
 
-        System.out.println("menthod showInfo() is " + expected.equals(actual));
-        System.out.println("actual is   " + actual);
-        System.out.println("expected is " + expected);
+        System.out.printf("menthod showInfo() is %b\nactual is %s\nexpected is %s",
+                expected.equals(actual), actual, expected);
+
     }
 }

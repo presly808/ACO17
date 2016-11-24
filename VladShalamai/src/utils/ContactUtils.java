@@ -1,6 +1,6 @@
-package contactlist;
+package utils;
 
-import week2.CarUtils;
+import contactlist.Contact;
 
 public class ContactUtils {
 
