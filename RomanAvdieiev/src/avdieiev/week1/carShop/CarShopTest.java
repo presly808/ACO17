@@ -13,6 +13,15 @@ public class CarShopTest {
         String pricelist = Engine.showAllCars();
         System.out.println(pricelist);
 
+        String listOfCars = Engine.filter(35000);
+        System.out.println(listOfCars);
 
+        Car desiredCar = Engine.buy(60000, 3);
+        System.out.println(desiredCar.toString());
+
+        String pricelist1 = Engine.showAllCars();
+        System.out.println(pricelist1);
+
+        System.out.println("Default budget + price for purchased car = " + Engine.getBudget());
     }
 }

@@ -7,13 +7,21 @@ public class CarUtils {
 
     public static Car generateCars() {
         String model = generateModel();
+        int autoID = generateAutoID();
         double fuel = generateFuel();
         boolean opened = false;
         double price = generatePrice();
         String originKey = generateKey();
         double consumption = generateCosumption();
 
-        return new Car(model, opened, fuel, price, originKey, consumption);
+        return new Car(model, autoID, opened, fuel, price, originKey, consumption);
+    }
+
+    private static int autoID = 0;
+
+    private static int generateAutoID() {
+        autoID++;
+        return autoID;
     }
 
     private static double generateCosumption() {
