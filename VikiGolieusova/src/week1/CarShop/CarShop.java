@@ -39,7 +39,7 @@ public class CarShop {
         for (int i = 0; i < cars.length; i++) {
             Car carPlace = cars[i];
                 strCars += carPlace.showInfo() + "\n";
-            count+=count;
+            count=count+1;
         }
         return strCars;
     }
