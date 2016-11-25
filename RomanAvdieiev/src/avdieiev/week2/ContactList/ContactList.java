@@ -57,7 +57,7 @@ public class ContactList {
         Scanner sc = new Scanner(System.in);
         String SearchedContact = sc.next();
         for (int i = 0; i < arrContacts.length; i++) {
-            if (SearchedContact.equals(arrContacts[i].getName())) {
+            if (arrContacts[i] != null && SearchedContact.equals(arrContacts[i].getName())) {
                 arrContacts[i] = null;
             } else {
                 System.out.println("Name not found");
@@ -78,12 +78,13 @@ public class ContactList {
 
 
     public String showFirstFive() {
-        String strContacts = null;
+        String strContacts = "";
         for (int i = 0; i < arrContacts.length; i++) {
             strContacts += arrContacts[i];
-            System.out.println(strContacts);
             if (i >= 4) {
                 break;
+            } else if (arrContacts[i] == null) {
+                continue;
             }
         }
         return strContacts;
@@ -91,11 +92,14 @@ public class ContactList {
 
 
     public String showLastFiveContacts() {
-        String strContacts = null;
+        String strContacts = "";
+        int count = 0;
         for (int i = arrContacts.length - 1; i >= 0; i--) {
-            strContacts += arrContacts[i];
-            System.out.println(strContacts);
-            if (i <= arrContacts.length - 5) {
+            if (arrContacts[i] != null) {
+                strContacts += arrContacts[i];
+                count = count + 1;
+            }
+            if (count == 5) {
                 break;
             }
         }
