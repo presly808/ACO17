@@ -35,11 +35,11 @@ public class CarShop {
 
     public String showAllCars() {
         String strCars = "";
+        int count = 0;
         for (int i = 0; i < cars.length; i++) {
             Car carPlace = cars[i];
-            if (carPlace != null) {
                 strCars += carPlace.showInfo() + "\n";
-            }
+            count+=count;
         }
         return strCars;
     }
@@ -58,16 +58,16 @@ public class CarShop {
     }
 
     public String buy(int money, int ID) {
-        String s = "";
+        String boughtCar = "";
         for (int i = 0; i < cars.length; i++) {
             if (cars[i].getId() == ID && money >= cars[i].getPrice()) {
-                s = cars[i].showInfo();
-                System.out.println("You buy:" + s);
+                boughtCar = cars[i].showInfo();
+                System.out.println("You buy:" + boughtCar);
                 budget = budget + cars[i].getPrice();
                 cars[i] = null;
             }
         }
-        return s;
+        return boughtCar;
     }
 
 }
