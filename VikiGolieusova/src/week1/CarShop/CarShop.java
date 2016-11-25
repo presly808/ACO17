@@ -21,27 +21,15 @@ public class CarShop {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getAdress() {
         return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
     }
 
     public double getBudget() {
         return budget;
     }
 
-    public void setBudget(double budget) {
-        this.budget = budget;
-    }
-
-    public String showAll() {
+     public String showAll() {
         return String.format("name %s, adress %s, budget %.2f", getName(), getAdress(), getBudget());
     }
 
@@ -64,7 +52,6 @@ public class CarShop {
             if (cars[i].getPrice() <= money && money != 0 && cars[i] != null) {
 
                 filterResult += cars[i].showInfo() + "\n";
-
             }
         }
         return filterResult;
@@ -80,9 +67,7 @@ public class CarShop {
                 cars[i] = null;
             }
         }
-
         return s;
-
     }
 
 }
