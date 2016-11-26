@@ -33,9 +33,7 @@ public class ContactList {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < numberOfContact; i++) {
-
             sb.append(contacts[i].showInfo()).append("\n");
-
         }
 
         return sb.toString();
@@ -47,9 +45,7 @@ public class ContactList {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < 5 && i < numberOfContact; i++) {
-
             sb.append(contacts[i].showInfo()).append("\n");
-
         }
 
         return sb.toString();
@@ -60,9 +56,7 @@ public class ContactList {
         StringBuilder sb = new StringBuilder();
 
         for (int i = numberOfContact - 1; i >= 0 && i > numberOfContact - 6; i--) {
-
             sb.append(contacts[i].showInfo()).append("\n");
-
         }
 
         return sb.toString();
