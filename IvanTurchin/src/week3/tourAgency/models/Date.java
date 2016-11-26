@@ -4,21 +4,21 @@ public class Date {
 
     private int year;
     private int month;
-    private int date;
+    private int day;
     private Time time;
 
     public Date() {
     }
 
-    public Date(int year, int month, int date, Time time) {
+    public Date(int year, int month, int day, Time time) {
 
-        if (year < 2016 || month <= 0 || month > 12 || date <= 0 || date > 31 || time == null) {
+        if (year < 2016 || month <= 0 || month > 12 || day <= 0 || day > 31 || time == null) {
             return;
         }
 
         this.year = year;
         this.month = month;
-        this.date = date;
+        this.day = day;
         this.time = time;
     }
 
@@ -38,12 +38,12 @@ public class Date {
         this.month = month;
     }
 
-    public int getDate() {
-        return date;
+    public int getDay() {
+        return day;
     }
 
-    public void setDate(int date) {
-        this.date = date;
+    public void setDay(int day) {
+        this.day = day;
     }
 
     public Time getTime() {
@@ -59,7 +59,7 @@ public class Date {
         return "Date{" +
                 "year=" + year +
                 ", month=" + month +
-                ", date=" + date +
+                ", day=" + day +
                 ", time=" + time +
                 '}';
     }
@@ -73,7 +73,7 @@ public class Date {
 
         if (year != date1.year) return false;
         if (month != date1.month) return false;
-        if (date != date1.date) return false;
+        if (day != date1.day) return false;
         return time != null ? time.equals(date1.time) : date1.time == null;
 
     }

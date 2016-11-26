@@ -3,14 +3,14 @@ package week3.tourAgency.models;
 public class Hotel {
 
     private String name;
-    private String address;
+    private Address address;
     private int price;
     private int rating;
 
     public Hotel() {
     }
 
-    public Hotel(String name, String address, int price, int rating) {
+    public Hotel(String name, Address address, int price, int rating) {
 
         if (name == null || address == null || price <= 0 || rating <= 0 || rating > 6) {
             return;
@@ -30,11 +30,11 @@ public class Hotel {
         this.name = name;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -58,7 +58,7 @@ public class Hotel {
     public String toString() {
         return "Hotel{" +
                 "name='" + name + '\'' +
-                ", address='" + address + '\'' +
+                ", address=" + address +
                 ", price=" + price +
                 ", rating=" + rating +
                 '}';

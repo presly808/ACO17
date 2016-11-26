@@ -27,4 +27,8 @@ public class Admin extends AdminController{
     public void removeTour(int index) {
         dataBase.removeTour(index);
     }
+
+    public DataBase getDataBase() {
+        return dataBase;
+    }
 }
