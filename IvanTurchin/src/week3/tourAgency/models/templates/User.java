@@ -15,7 +15,7 @@ public class User extends UserController{
     private Tour[] purchasedTours;
     private int money;
 
-    DataBase dataBase = new DataBase();
+    private int lastPurchased = 0;
 
     public User(String name, String email, int id, int money) {
         this.name = name;
@@ -23,18 +23,19 @@ public class User extends UserController{
         this.id = id;
         this.money = money;
 
+        DataBase.add(this);
         this.purchasedTours = new Tour[1];
     }
 
     @Override
     public String showAllTours() {
 
-        return Arrays.toString(dataBase.getTours());
+        return Arrays.toString(DataBase.getTours());
     }
 
     @Override
     public void makeTourRequest(Request request) {
-        dataBase.add(request);
+        DataBase.add(request);
     }
 
     @Override
@@ -42,9 +43,9 @@ public class User extends UserController{
 
         String res = "";
 
-        for (int i = 0; i < dataBase.getLastTour(); i++) {
-            if (dataBase.getTours()[i].getName().equals(key)) {
-                res += new StringBuilder(dataBase.getTours()[i].toString()).append("\n");
+        for (int i = 0; i < DataBase.getLastTour(); i++) {
+            if (DataBase.getTours()[i].getName().equals(key)) {
+                res += new StringBuilder(DataBase.getTours()[i].toString()).append("\n");
             }
         }
 
@@ -56,9 +57,9 @@ public class User extends UserController{
 
         String res = "";
 
-        for (int i = 0; i < dataBase.getLastTour(); i++) {
-            if (money >= dataBase.getTours()[i].getPrice()) {
-                res += new StringBuilder(dataBase.getTours()[i].toString()).append("\n");
+        for (int i = 0; i < DataBase.getLastTour(); i++) {
+            if (money >= DataBase.getTours()[i].getPrice()) {
+                res += new StringBuilder(DataBase.getTours()[i].toString()).append("\n");
             }
         }
 
@@ -74,13 +75,17 @@ public class User extends UserController{
 
         if (request.isConfirmed()) {
 
-            int index = -1;
-
-            for (int i = 0; i < dataBase.getLastRequest(); i++) {
-                if (request.equals(dataBase.getRequests()[i]));
+            for (int i = 0; i < DataBase.getRequests().length; i++) {
+                if (DataBase.getRequests()[i] != null && DataBase.getRequests()[i].isConfirmed()) {
+                    DataBase.removeRequest(i);
+                }
             }
 
-            dataBase.removeRequest(index);
+            if (this.purchasedTours.length == lastPurchased) {
+                this.purchasedTours = Arrays.copyOf(this.purchasedTours, this.purchasedTours.length * 2);
+            }
+            this.purchasedTours[lastPurchased] = request.getTour();
+            lastPurchased++;
 
             return request.getTour();
         }

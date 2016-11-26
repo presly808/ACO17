@@ -23,7 +23,7 @@ public class Request {
 
     public void confirm(Admin admin) {
 
-        isConfirmed = admin == null;
+        isConfirmed = admin != null;
     }
 
     public User getUser() {

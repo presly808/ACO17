@@ -8,15 +8,15 @@ import java.util.Arrays;
 
 public class DataBase {
 
-    private User[] users = new User[10];
-    private Tour[] tours = new Tour[10];
-    private Request[] requests = new Request[10];
+    private static User[] users = new User[10];
+    private static Tour[] tours = new Tour[10];
+    private static Request[] requests = new Request[10];
 
-    private int lastUser = 0;
-    private int lastTour = 0;
-    private int lastRequest;
+    private static int lastUser = 0;
+    private static int lastTour = 0;
+    private static int lastRequest;
 
-    private boolean contains(User user) {
+    private static boolean contains(User user) {
 
         for (int i = 0; i < lastUser; i++) {
             if (users[i].equals(user)) {
@@ -27,7 +27,7 @@ public class DataBase {
         return false;
     }
 
-    private boolean contains(Tour tour) {
+    private static boolean contains(Tour tour) {
 
         for (int i = 0; i < lastTour; i++) {
             if (tours[i].equals(tour)) {
@@ -38,7 +38,7 @@ public class DataBase {
         return false;
     }
 
-    private boolean contains(Request request) {
+    private static boolean contains(Request request) {
 
         for (int i = 0; i < lastRequest; i++) {
             if (requests[i].equals(request)) {
@@ -49,7 +49,7 @@ public class DataBase {
         return false;
     }
 
-    public void add(Object object) {
+    public static void add(Object object) {
 
         if (object == null) {
             return;
@@ -102,7 +102,7 @@ public class DataBase {
         }
     }
 
-    public void removeUser(int index) {
+    public static void removeUser(int index) {
 
         if (index < 0 || index >= users.length) {
             return;
@@ -123,7 +123,7 @@ public class DataBase {
         users = temp;
     }
 
-    public void removeTour(int index) {
+    public static void removeTour(int index) {
 
         if (index < 0 || index >= users.length) {
             return;
@@ -144,7 +144,7 @@ public class DataBase {
         tours = temp;
     }
 
-    public void removeRequest(int index) {
+    public static void removeRequest(int index) {
 
         if (index < 0 || index >= users.length) {
             return;
@@ -165,7 +165,7 @@ public class DataBase {
         requests = temp;
     }
 
-    public void overrideTour(Tour tour, int index) {
+    public static void overrideTour(Tour tour, int index) {
 
         if (tour == null || index < 0 || index > lastTour) {
             return;
@@ -174,27 +174,27 @@ public class DataBase {
         tours[index] = tour;
     }
 
-    public User[] getUsers() {
+    public static User[] getUsers() {
         return users;
     }
 
-    public Tour[] getTours() {
+    public static Tour[] getTours() {
         return tours;
     }
 
-    public Request[] getRequests() {
+    public static Request[] getRequests() {
         return requests;
     }
 
-    public int getLastUser() {
+    public static int getLastUser() {
         return lastUser;
     }
 
-    public int getLastTour() {
+    public static int getLastTour() {
         return lastTour;
     }
 
-    public int getLastRequest() {
+    public static int getLastRequest() {
         return lastRequest;
     }
 
