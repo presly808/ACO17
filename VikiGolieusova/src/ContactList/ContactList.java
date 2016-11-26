@@ -1,4 +1,4 @@
-package week3.ContactList;
+package ContactList;
 /*      - addContact
         - removeLast
         - findContact
