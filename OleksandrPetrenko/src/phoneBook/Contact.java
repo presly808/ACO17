@@ -44,7 +44,7 @@ public class Contact {
     }
 
     public String generateName(){
-        String[] names = {"Jack", "James", "Kirk", "Ozzy", "Lemmy"};
+        String[] names = {"Jack", "James", "Kikrk", "Ozzy", "Lemmy"};
         return names[(int)(Math.random() * names.length)];
     }
 
