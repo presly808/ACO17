@@ -1,4 +1,4 @@
-package travelagency;
+package travelagency.model;
 
 /**
  * Created by Влад on 26.11.2016.

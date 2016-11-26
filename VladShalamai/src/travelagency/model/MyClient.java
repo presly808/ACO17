@@ -1,20 +1,18 @@
-package travelagency;
+package travelagency.model;
 
 /**
  * Created by Влад on 26.11.2016.
  */
-public class Request {
+public class MyClient {
 
     private String name;
     private String phone;
     private String email;
-    private MyDate date;
 
-    public Request(String name, String phone, String email, MyDate date) {
+    public MyClient(String name, String phone, String email) {
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.date = date;
     }
 
     public String getName() {
@@ -39,13 +37,5 @@ public class Request {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public MyDate getDate() {
-        return date;
-    }
-
-    public void setDate(MyDate date) {
-        this.date = date;
     }
 }

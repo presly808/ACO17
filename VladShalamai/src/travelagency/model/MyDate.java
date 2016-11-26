@@ -1,4 +1,4 @@
-package travelagency;
+package travelagency.model;
 
 
 /**
