@@ -159,6 +159,15 @@ public class ContactList {
         return res;
     }
 
+    @Override
+    public String toString() {
+        return "ContactList{" +
+                "contacts=" + Arrays.toString(contacts) +
+                ", countOfContacts=" + countOfContacts +
+                ", lastContact=" + lastContact +
+                '}';
+    }
+
     public Contact[] getContacts() {
         return contacts;
     }
