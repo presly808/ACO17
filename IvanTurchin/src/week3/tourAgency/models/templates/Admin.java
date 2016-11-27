@@ -4,7 +4,7 @@ import week3.tourAgency.controllers.AdminController;
 import week3.tourAgency.dataBase.DataBase;
 import week3.tourAgency.models.Tour;
 
-public class Admin extends AdminController{
+public class Admin implements AdminController{
 
     @Override
     public void addTour(Tour tour) {

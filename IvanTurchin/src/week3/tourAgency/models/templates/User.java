@@ -7,7 +7,7 @@ import week3.tourAgency.models.Tour;
 
 import java.util.Arrays;
 
-public class User extends UserController{
+public class User implements UserController{
 
     private String name;
     private String email;
