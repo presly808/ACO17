@@ -6,6 +6,7 @@ import week3.tourAgency.models.Request;
 import week3.tourAgency.models.Tour;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class User implements UserController{
 
@@ -134,5 +135,21 @@ public class User implements UserController{
         return user.getName().equals(this.name) && user.getEmail().equals(this.email) &&
                 user.getMoney() == this.money;
 
+    }
+
+    @Override
+    public Tour[] sort() {
+        Tour[] tour = DataBase.getTours();
+        Arrays.sort(tour, new PriceTourComparator());
+
+        return tour;
+    }
+}
+
+class PriceTourComparator implements Comparator<Tour> {
+
+    @Override
+    public int compare(Tour o1, Tour o2) {
+        return o1.getPrice() - o2.getPrice();
     }
 }

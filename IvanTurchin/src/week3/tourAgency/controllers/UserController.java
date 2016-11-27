@@ -15,4 +15,6 @@ public interface UserController {
 
     Tour getTour(Request request);
 
+    Tour[] sort();
+
 }
