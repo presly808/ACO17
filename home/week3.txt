@@ -1,0 +1,26 @@
+1. Create mindmap of prev. learned topics
+
+2. 3.  discover all structure, see uml of below applications(run and debug each applications)
+    2.1. https://github.com/presly808/ACO6/tree/master/src/ua/artcode/service_centre/v2/centre_mvc
+         https://github.com/presly808/ACO6/blob/master/src/ua/artcode/service_centre/v2/centre_mvc/diagram.png
+
+    2.2. https://github.com/presly808/ACO6/tree/master/src/ua/artcode/service_centre/v3/service_centre
+         https://github.com/presly808/ACO6/blob/master/src/ua/artcode/service_centre/v3/service_centre/diagram.png
+
+    2.3. https://github.com/presly808/ACO6/tree/master/src/ua/artcode/dp/mvc
+         https://github.com/presly808/ACO6/blob/master/src/ua/artcode/dp/mvc/mvc_simple.png
+
+    2.4. https://github.com/presly808/ACO6/tree/master/src/ua/artcode/service_centre/v1
+         https://github.com/presly808/ACO6/blob/master/src/ua/artcode/service_centre/v1/diagram.png
+
+4. Draw Class Diagram for () 
+	http://rozetka.com.ua/
+	https://mail.google.com/
+
+5. Finish project that we started at classroom
+	You should code:
+	- tests
+	- controller
+	- consoleMenu
+	- use ArrayList, instead of arrays
+	
