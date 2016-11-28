@@ -18,8 +18,6 @@ public class DataBase {
     private ArrayList<Tour> tours = new ArrayList<>();
     private ArrayList<Request> requests = new ArrayList<>();
 
-    Pattern pattern = Pattern.compile("[^a-zA-Z\\s]");
-
     public ArrayList<Tour> getTours() {
         return tours;
     }
@@ -36,27 +34,4 @@ public class DataBase {
         this.requests = requests;
     }
 
-    public void addTour(String name, long price, MyDate startDate, MyDate endDate, String transport, Hotel hotel) {
-
-        Matcher matcherName = pattern.matcher(name);
-        Matcher matcherTransport = pattern.matcher(transport);
-
-        if (matcherName.find() || matcherTransport.find() || price < 0 || startDate.equals(endDate)) {
-            return;
-        }
-
-        tours.add(new Tour(name, price * 100, startDate, endDate, transport, hotel));
-
-    }
-
-    public  Tour removeTour(int id) {
-
-        for (Tour tour : tours) {
-            if (tour.getId() == id) {
-                tours.remove(tour);
-                return tour;
-            }
-        }
-        return null;
-    }
 }
