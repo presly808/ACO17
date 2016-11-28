@@ -2,43 +2,63 @@ package travelagency.controller;
 
 
 import travelagency.db.DataBase;
+import travelagency.model.Request;
 import travelagency.model.Tour;
+
+import java.util.ArrayList;
+
 
 /**
  * Created by Влад on 26.11.2016.
  */
 public class UserController {
 
-    public static String showAllTours() {
+    private DataBase dataBase;
 
-        Tour[] tours = DataBase.getTours();
+    public UserController(DataBase dataBase) {
+        this.dataBase = dataBase;
+    }
+
+    public String showAllTours() {
+
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < tours.length; i++) {
-            sb.append(String.format("id: %d, country: %s, price: %d,\n start: %d/%d/%d, end: %d/%d/%d," +
-                                    " transport: %s\n\tHotel\nname: %s, rating: %d, price: %s\n", tours[i].getId(),
-                            tours[i].getHotel().getAddress().getCountry(), tours[i].getPrice() / 100,
-                            tours[i].getStartDate().getDay(), tours[i].getStartDate().getMonth(),
-                            tours[i].getStartDate().getDay(), tours[i].getEndDate().getDay(),
-                            tours[i].getEndDate().getMonth(), tours[i].getEndDate().getYear(), tours[i].getTransport(),
-                            tours[i].getHotel().getName(), tours[i].getHotel().getRating(),
-                            tours[i].getHotel().getPrice() / 100));
+        for (Tour tour : dataBase.getTours()) {
+            sb.append(tour.toString());
         }
 
         return sb.toString();
     }
 
-    public static void sendTourRequest() {
+    public void sendTourRequest(DataBase dataBase) {
+
 
     }
 
-    public static String filterTours(int price) {
-        return null;
+    public String searchByPrice(long price) {
+
+        StringBuilder sb = new StringBuilder();
+
+        for (Tour tour : dataBase.getTours()) {
+            if (tour.getPrice() / 100 < price) {
+                sb.append(tour.toString());
+            }
+        }
+
+        return sb.toString();
     }
 
-    public static String filterTours(String country) {
-        return null;
-    }
+    public String searchByCountry(String country) {
 
+        StringBuilder sb = new StringBuilder();
+
+        for (Tour tour : dataBase.getTours()) {
+            if (tour.getHotel().getAddress().getCountry().equals(country)) {
+                sb.append(tour.toString());
+            }
+        }
+
+        return sb.toString();
+    }
 
 }

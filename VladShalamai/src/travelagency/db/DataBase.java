@@ -1,45 +1,51 @@
 package travelagency.db;
 
+import travelagency.model.Hotel;
+import travelagency.model.MyDate;
 import travelagency.model.Request;
 import travelagency.model.Tour;
 import utils.TravelAgencyUtils;
+
+import java.util.ArrayList;
 
 /**
  * Created by Влад on 26.11.2016.
  */
 public class DataBase {
 
-    private static final int MAX_SIZE = 30;
-    private static Tour[] tours = initTour();
-    private static Request[] requests;
+    private ArrayList<Tour> tours = new ArrayList<>();
+    private ArrayList<Request> requests = new ArrayList<>();
 
-    public static Tour[] getTours() {
+    public ArrayList<Tour> getTours() {
         return tours;
     }
 
-    public static void setTours(Tour[] tours) {
-        DataBase.tours = tours;
+    public void setTours(ArrayList<Tour> tours) {
+        this.tours = tours;
     }
 
-    public static Request[] getRequests() {
+    public ArrayList<Request> getRequests() {
         return requests;
     }
 
-    public static void setRequests(Request[] requests) {
-        DataBase.requests = requests;
+    public void setRequests(ArrayList<Request> requests) {
+        this.requests = requests;
     }
 
-    public static Tour[] initTour() {
-        for (int i = 0; i < 10; i++) {
-            tours[i] = new Tour(i, TravelAgencyUtils.generateNum(100000, 300000),
-                    TravelAgencyUtils.generateDate(2016), TravelAgencyUtils.generateDate(2017),
-                    TravelAgencyUtils.generateTransport(), TravelAgencyUtils.generateHotel());
+    public void addTour(String name, long price, MyDate startDate, MyDate endDate, String transport, Hotel hotel) {
+
+        tours.add(new Tour(name, price * 100, startDate, endDate, transport, hotel));
+
+    }
+
+    public  Tour removeTour(int id) {
+
+        for (Tour tour : tours) {
+            if (tour.getId() == id) {
+                tours.remove(tour);
+                return tour;
+            }
         }
-
-        return tours;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(tours[3].getId());
+        return null;
     }
 }

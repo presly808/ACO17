@@ -5,15 +5,18 @@ package travelagency.model;
  */
 public class Tour {
 
+    private static int count = 1;
     private int id;
+    private String name;
     private long price;
     private MyDate startDate;
     private MyDate endDate;
     private String transport;
     private Hotel hotel;
 
-    public Tour(int id, long price, MyDate startDate, MyDate endDate, String transport, Hotel hotel) {
-        this.id = id;
+    public Tour(String name, long price, MyDate startDate, MyDate endDate, String transport, Hotel hotel) {
+        this.id = count++;
+        this.name = name;
         this.price = price;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -27,6 +30,10 @@ public class Tour {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public long getPrice() {
@@ -67,5 +74,17 @@ public class Tour {
 
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
+    }
+
+    public String toString() {
+
+        return String.format("id: %d\t\t%s\nwhere? %s\thow much? %d$\twhen? %d/%d/%d - %d/%d/%d" +
+                        "\nhotel: %s, rating: %d, price: %s$\ntransportation by %s\n\n", this.id, this.name,
+                this.hotel.getAddress().getCountry(), this.price / 100,
+                this.startDate.getDay(), this.startDate.getMonth(),
+                this.startDate.getYear(), this.endDate.getDay(),
+                this.endDate.getMonth(), this.endDate.getYear(),
+                this.hotel.getName(), this.hotel.getRating(),
+                this.hotel.getPrice() / 100,this.transport);
     }
 }
