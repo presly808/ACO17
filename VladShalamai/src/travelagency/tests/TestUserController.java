@@ -15,7 +15,22 @@ public class TestUserController {
         testShowAllTours();
         testSearchByPrice();
         testSearchByCountry();
+        testSendTourRequest();
 
+    }
+
+    private static void testSendTourRequest() {
+
+        DataBase dataBase = new DataBase();
+        UserController user = new UserController(dataBase);
+
+        for (int i = 0; i < 5; i++) {
+            dataBase.getTours().add(generateTour());
+        }
+
+        user.sendTourRequest(13, "Vlad", "555555", "vlad@gmail.com");
+
+        System.out.println("sendTourRequest() is " + (dataBase.getRequests().size() == 1));
     }
 
     private static void testSearchByCountry() {
