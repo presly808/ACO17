@@ -1,6 +1,7 @@
 package travelagency.tests;
 
 import travelagency.controller.AdminController;
+import travelagency.controller.UserController;
 import travelagency.db.DataBase;
 import travelagency.model.*;
 
@@ -22,6 +23,34 @@ public class TestAdminController {
 
         testAddTour(dataBase);
         testRemoveTour(dataBase);
+        testShowAllRequests(dataBase);
+        testUpdateTours(dataBase);
+
+    }
+
+    private static void testUpdateTours(DataBase dataBase) {
+
+        AdminController admin = new AdminController(dataBase);
+        UserController user = new UserController(dataBase);
+
+        admin.updateTour(1, 10000);
+        admin.updateTour(4, "motorbike");
+
+        String actual = user.showAllTours();
+        System.out.println("updateTour() is " + (actual.contains("motorbike") && actual.contains("10000")));
+
+    }
+
+    private static void testShowAllRequests(DataBase dataBase) {
+
+        AdminController admin = new AdminController(dataBase);
+        UserController user = new UserController(dataBase);
+
+        user.sendTourRequest(3, "John", "999", "john@gmail.com");
+        user.sendTourRequest(5, "Karina", "555", "karina@gmail.com");
+
+        String actual = admin.showAllRequests();
+        System.out.println("showAllRequests() is " + (actual.contains("id: 3") && actual.contains("id: 5")));
 
     }
 
@@ -42,7 +71,7 @@ public class TestAdminController {
         AdminController admin = new AdminController(dataBase);
 
         Tour removed = admin.removeTour(2);
-        System.out.printf("removeTour() is " + (removed.getId() == 2));
+        System.out.println("removeTour() is " + (removed.getId() == 2));
     }
 
 }

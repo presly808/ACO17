@@ -3,6 +3,7 @@ package travelagency.controller;
 import travelagency.db.DataBase;
 import travelagency.model.Hotel;
 import travelagency.model.MyDate;
+import travelagency.model.Request;
 import travelagency.model.Tour;
 
 import java.util.regex.Matcher;
@@ -33,11 +34,44 @@ public class AdminController {
 
     }
 
-    public  Tour removeTour(int id) {
+    public Tour removeTour(int id) {
 
         for (Tour tour : dataBase.getTours()) {
             if (tour.getId() == id) {
                 dataBase.getTours().remove(tour);
+                return tour;
+            }
+        }
+        return null;
+    }
+
+    public String showAllRequests() {
+
+        StringBuilder sb = new StringBuilder();
+
+        for (Request request : dataBase.getRequests()) {
+            sb.append(request.toString());
+        }
+
+        return sb.toString();
+    }
+
+    public Tour updateTour(int id, long price) {
+
+        for (Tour tour : dataBase.getTours()) {
+            if (tour.getId() == id) {
+                tour.setPrice(price * 100);
+                return tour;
+            }
+        }
+        return null;
+    }
+
+    public Tour updateTour(int id, String transport) {
+
+        for (Tour tour : dataBase.getTours()) {
+            if (tour.getId() == id) {
+                tour.setTransport(transport);
                 return tour;
             }
         }

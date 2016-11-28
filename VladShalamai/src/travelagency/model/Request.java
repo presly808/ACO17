@@ -38,4 +38,10 @@ public class Request {
     public void setDate(MyDate date) {
         this.date = date;
     }
+
+    public String toString() {
+        return String.format("id: %d, \t\tname: %s\ttime: %d/%d/%d \nphone: %s, email:%s\n", this.id,
+                this.client.getName(), this.date.getDay(), this.date.getMonth(), this.date.getDay(),
+                this.client.getPhone(), this.client.getEmail());
+    }
 }
