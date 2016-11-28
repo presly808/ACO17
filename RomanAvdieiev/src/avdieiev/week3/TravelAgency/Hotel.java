@@ -6,6 +6,13 @@ public class Hotel {
     private long price;
     private int rating;
 
+    public Hotel(String name, Adress adress, long price, int rating) {
+        this.name = name;
+        this.adress = adress;
+        this.price = price;
+        this.rating = rating;
+    }
+
     public void setName(String name) {
         this.name = name;
     }

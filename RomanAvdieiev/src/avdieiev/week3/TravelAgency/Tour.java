@@ -8,6 +8,14 @@ public class Tour {
     private String transport;
     private Hotel hotel;
 
+    public Tour(int ID, long price, MyDate date, String transport, Hotel hotel) {
+        this.ID = ID;
+        this.price = price;
+        this.date = date;
+        this.transport = transport;
+        this.hotel = hotel;
+    }
+
     public void setPrice(long price) {
         this.price = price;
     }

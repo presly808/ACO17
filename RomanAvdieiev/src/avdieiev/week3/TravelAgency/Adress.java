@@ -6,6 +6,13 @@ public class Adress {
     private String street;
     private int houseNumber;
 
+    public Adress(String country, String city, String street, int houseNumber) {
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.houseNumber = houseNumber;
+    }
+
     public void setCountry(String country) {
         this.country = country;
     }

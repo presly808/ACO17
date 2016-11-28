@@ -7,6 +7,13 @@ public class MyDate {
     private int date;
     private Time time;
 
+    public MyDate(int year, int month, int date, Time time) {
+        this.year = year;
+        this.month = month;
+        this.date = date;
+        this.time = time;
+    }
+
     public void setYear(int year) {
         this.year = year;
     }

@@ -3,8 +3,12 @@ package avdieiev.week3.TravelAgency;
 
 public class Time {
     public int hours;
-
     public int minutes;
+
+    public Time(int hours, int minutes) {
+        this.hours = hours;
+        this.minutes = minutes;
+    }
 
     public void setHours(int hours) {
         this.hours = hours;
