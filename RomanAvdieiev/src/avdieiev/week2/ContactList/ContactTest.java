@@ -34,10 +34,11 @@ public class ContactTest {
 //        String c = arrayOfContacts.showFirstFive();
 //        System.out.println(c);
 
-        System.out.println(arrayOfContacts);
-        System.out.println("---------------------------------");
-        String d = arrayOfContacts.showLastFiveContacts();
-        System.out.println(d);
+//        System.out.println(arrayOfContacts);
+//        System.out.println("---------------------------------");
+//        String d = arrayOfContacts.showLastFiveContacts();
+//        System.out.println(d);
+
 
     }
 }

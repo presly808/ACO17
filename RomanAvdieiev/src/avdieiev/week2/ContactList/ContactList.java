@@ -25,11 +25,20 @@ public class ContactList {
 
     Contact[] arrContacts = new Contact[10];
 
-    int i = 0;
+    int j = 0;
 
     public void addContact(Contact contact) {
-        arrContacts[i] = contact;
-        i++;
+        for (int i = 0; i < arrContacts.length; i++) {
+            if (arrContacts[i].getName().equals(contact.getName())) {
+                System.out.println("Incorrect data!");
+            }
+            if (arrContacts[i].getNumber().matches("%[a-zA-Z]%")){
+                System.out.println("This field must contain only numerals");
+                break;
+            }
+        }
+        arrContacts[j] = contact;
+        j++;
     }
 
     public void removeLast() {
@@ -105,6 +114,33 @@ public class ContactList {
         }
         return strContacts;
     }
+
+    public String showLifeContacts() {
+        String lifeContact = "";
+        int count = 0;
+        for (int i = 0; i < arrContacts.length; i++) {
+            if (arrContacts[i].toString().startsWith("063") ||
+                arrContacts[i].toString().startsWith("093") ||
+                arrContacts[i].toString().startsWith("073")) {
+                lifeContact += arrContacts[i];
+                count = count + 1;
+            }
+        }
+        return lifeContact;
+    }
+    public String showKievstarContacts() {
+        String kievstarContact = "";
+        int count = 0;
+        for (int i = 0; i < arrContacts.length; i++) {
+            if (arrContacts[i].toString().startsWith("067") ||
+                arrContacts[i].toString().startsWith("097")) {
+                kievstarContact += arrContacts[i];
+                count = count + 1;
+            }
+        }
+        return kievstarContact;
+    }
+
 
     @Override
     public String toString() {

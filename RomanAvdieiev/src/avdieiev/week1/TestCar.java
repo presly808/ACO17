@@ -7,7 +7,7 @@ public class TestCar {
         Scanner sc = new Scanner(System.in);
         int km = sc.nextInt();
 
-        Car car1 = new Car ("BMW", false, 30, 30000, "123", 10);
+        Car car1 = new Car ("BMW", 1,false, 30, 30000, "123", 10);
 
         String car1Info = car1.ShowAll();
         System.out.println(car1Info);
