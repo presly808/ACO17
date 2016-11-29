@@ -16,9 +16,14 @@ public class AdminController {
 
     DataBase dataBase;
     Pattern pattern = Pattern.compile("[^a-zA-Z\\s]");
+    private static int password = 12345;
 
     public AdminController(DataBase dataBase) {
         this.dataBase = dataBase;
+    }
+
+    public static int getPassword() {
+        return password;
     }
 
     public void addTour(String name, long price, MyDate startDate, MyDate endDate, String transport, Hotel hotel) {

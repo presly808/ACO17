@@ -1,14 +1,10 @@
 package travelagency.db;
 
-import travelagency.model.Hotel;
-import travelagency.model.MyDate;
 import travelagency.model.Request;
 import travelagency.model.Tour;
-import utils.TravelAgencyUtils;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 /**
  * Created by Влад on 26.11.2016.
