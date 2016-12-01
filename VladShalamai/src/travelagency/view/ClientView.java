@@ -5,9 +5,8 @@ import travelagency.controller.AdminController;
 import travelagency.controller.UserController;
 import travelagency.model.Address;
 import travelagency.model.Hotel;
-import travelagency.model.MyDate;
-import travelagency.model.MyTime;
 
+import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 /**
@@ -25,7 +24,7 @@ public class ClientView {
     }
 
     private void showStartPage() {
-        System.out.println("sign in as:\n1. admin\n2. user");
+        System.out.println("sign in as:\n1. admin\n2. user\n3. exit");
     }
 
     public void start() {
@@ -47,6 +46,9 @@ public class ClientView {
                     }
                 case 2:
                     showUserMenu();
+                    break;
+                case 3:
+                    return;
             }
         }
     }
@@ -131,13 +133,13 @@ public class ClientView {
 
         System.out.println("start date in format yyyy/mm/dd");
         String[] date = scanner.next().split("/");
-        MyDate startDate = new MyDate(Integer.parseInt(date[0]), Integer.parseInt(date[1]),
-                Integer.parseInt(date[2]), new MyTime(0, 0));
+        GregorianCalendar startDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]),
+                Integer.parseInt(date[2]));
 
         System.out.println("end date in format yyyy/mm/dd");
         date = scanner.next().split("/");
-        MyDate endDate = new MyDate(Integer.parseInt(date[0]), Integer.parseInt(date[1]),
-                Integer.parseInt(date[2]), new MyTime(0, 0));
+        GregorianCalendar endDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]),
+                Integer.parseInt(date[2]));
 
         System.out.println("transport by: ");
         String transport = scanner.next();

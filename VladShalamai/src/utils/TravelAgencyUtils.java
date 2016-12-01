@@ -2,6 +2,8 @@ package utils;
 
 import travelagency.model.*;
 
+import java.util.GregorianCalendar;
+
 
 /**
  * Created by Влад on 26.11.2016.
@@ -38,9 +40,9 @@ public class TravelAgencyUtils {
         return names[generateNum(0, names.length)];
     }
 
-    public static MyDate generateDate(int month) {
-        return new MyDate(2017, month,
-                generateNum(0, 31), new MyTime(generateNum(0, 23), generateNum(0, 60)));
+    public static GregorianCalendar generateDate(int month) {
+        return new GregorianCalendar(2017, month,
+                generateNum(0, 31));
     }
 
     public static String generateTransport() {

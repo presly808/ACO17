@@ -4,10 +4,7 @@ package travelagency.controller;
 import travelagency.db.DataBase;
 import travelagency.model.*;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,9 +16,8 @@ import java.util.regex.Pattern;
 public class UserController {
 
     private DataBase dataBase;
-    Calendar calendar = new GregorianCalendar();
-    Pattern patternName = Pattern.compile("[^a-zA-Z\\s]");
-    Pattern patternPhone = Pattern.compile("[^0-9]");
+    private Pattern patternName = Pattern.compile("[^a-zA-Z\\s]");
+    private Pattern patternPhone = Pattern.compile("[^0-9]");
 
     public UserController(DataBase dataBase) {
         this.dataBase = dataBase;
@@ -56,8 +52,7 @@ public class UserController {
         }
 
         dataBase.getRequests().add(new Request(id, new MyClient(name, phone, email),
-                        new MyDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
-                        calendar.get(Calendar.DAY_OF_MONTH), new MyTime(0, 0))));
+                        new GregorianCalendar()));
 
     }
 

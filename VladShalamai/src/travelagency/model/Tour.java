@@ -1,5 +1,8 @@
 package travelagency.model;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 /**
  * Created by Влад on 26.11.2016.
  */
@@ -9,12 +12,12 @@ public class Tour {
     private int id;
     private String name;
     private long price;
-    private MyDate startDate;
-    private MyDate endDate;
+    private GregorianCalendar startDate;
+    private GregorianCalendar endDate;
     private String transport;
     private Hotel hotel;
 
-    public Tour(String name, long price, MyDate startDate, MyDate endDate, String transport, Hotel hotel) {
+    public Tour(String name, long price, GregorianCalendar startDate, GregorianCalendar endDate, String transport, Hotel hotel) {
         this.id = count++;
         this.name = name;
         this.price = price;
@@ -44,19 +47,19 @@ public class Tour {
         this.price = price;
     }
 
-    public MyDate getStartDate() {
+    public GregorianCalendar getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(MyDate startDate) {
+    public void setStartDate(GregorianCalendar startDate) {
         this.startDate = startDate;
     }
 
-    public MyDate getEndDate() {
+    public GregorianCalendar getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(MyDate endDate) {
+    public void setEndDate(GregorianCalendar endDate) {
         this.endDate = endDate;
     }
 
@@ -76,14 +79,15 @@ public class Tour {
         this.hotel = hotel;
     }
 
+    @Override
     public String toString() {
 
         return String.format("id: %d\t\t%s\nwhere? %s\thow much? %d$\twhen? %d/%d/%d - %d/%d/%d" +
                         "\nhotel: %s, rating: %d, price: %s$\ntransportation by %s\n\n", this.id, this.name,
                 this.hotel.getAddress().getCountry(), this.price / 100,
-                this.startDate.getDay(), this.startDate.getMonth(),
-                this.startDate.getYear(), this.endDate.getDay(),
-                this.endDate.getMonth(), this.endDate.getYear(),
+                this.startDate.get(Calendar.DATE), this.startDate.get(Calendar.MONTH),
+                this.startDate.get(Calendar.YEAR), this.endDate.get(Calendar.DATE),
+                this.endDate.get(Calendar.MONTH), this.endDate.get(Calendar.YEAR),
                 this.hotel.getName(), this.hotel.getRating(),
                 this.hotel.getPrice() / 100,this.transport);
     }

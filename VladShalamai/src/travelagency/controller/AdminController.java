@@ -2,10 +2,10 @@ package travelagency.controller;
 
 import travelagency.db.DataBase;
 import travelagency.model.Hotel;
-import travelagency.model.MyDate;
 import travelagency.model.Request;
 import travelagency.model.Tour;
 
+import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,8 +14,8 @@ import java.util.regex.Pattern;
  */
 public class AdminController {
 
-    DataBase dataBase;
-    Pattern pattern = Pattern.compile("[^a-zA-Z\\s]");
+    private DataBase dataBase;
+    private Pattern pattern = Pattern.compile("[^a-zA-Z\\s]");
     private static int password = 12345;
 
     public AdminController(DataBase dataBase) {
@@ -26,7 +26,7 @@ public class AdminController {
         return password;
     }
 
-    public void addTour(String name, long price, MyDate startDate, MyDate endDate, String transport, Hotel hotel) {
+    public void addTour(String name, long price, GregorianCalendar startDate, GregorianCalendar endDate, String transport, Hotel hotel) {
 
         Matcher matcherName = pattern.matcher(name);
         Matcher matcherTransport = pattern.matcher(transport);

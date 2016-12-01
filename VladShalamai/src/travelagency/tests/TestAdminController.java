@@ -5,6 +5,8 @@ import travelagency.controller.UserController;
 import travelagency.db.DataBase;
 import travelagency.model.*;
 
+import java.util.GregorianCalendar;
+
 import static utils.TravelAgencyUtils.*;
 
 
@@ -58,8 +60,8 @@ public class TestAdminController {
 
         AdminController admin = new AdminController(dataBase);
 
-        admin.addTour("Relax in Paris", 3000, new MyDate(2016, 3, 2, new MyTime(12, 10)),
-                new MyDate(2016, 3, 20, new MyTime(12, 10)), "plane", new Hotel("Hilton",
+        admin.addTour("Relax in Paris", 3000, new GregorianCalendar(2016, 3, 2,12, 10),
+                new GregorianCalendar(2016, 3, 20,12, 10), "plane", new Hotel("Hilton",
                         new Address("USA", "New-York", "Wall-Street", 12), 700, 5));
 
         System.out.println("addTour() is " + (dataBase.getTours().size() == 6));
