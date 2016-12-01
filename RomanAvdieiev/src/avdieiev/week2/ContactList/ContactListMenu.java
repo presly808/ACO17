@@ -6,18 +6,15 @@ public class ContactListMenu {
     private Scanner scanner = new Scanner(System.in);
     private ContactList contactList;
 
-    public void startContactlist(ContactList contactList) {
+    public void start(ContactList contactList) {
         this.contactList = contactList;
-    }
-
-    public void start() {
         while (true) {
             showMainMenu();
             int choice = scanner.nextInt();
             if (choice == 1) {
                 showAddContactMenu();
             } else if (choice == 2) {
-                showRemoveContact();
+                showRemoveLastContact();
             } else if (choice == 3) {
                 showRemoveContact();
             } else if (choice == 4) {
@@ -25,13 +22,13 @@ public class ContactListMenu {
             } else if (choice == 5) {
                 showLastFiveContact();
             } else if (choice == 6) {
-                contactList.showAllContacts();
+                showShowAllContacts();
             } else if (choice == 7) {
                 showFindContact();
             } else if (choice == 8) {
-                contactList.showLifeContacts();
+                showShowLifeContacts();
             } else if (choice == 9) {
-                contactList.showKievstarContacts();
+                showShowKievstarContacts();
             } else if (choice == 10) {
                 break;
             }
@@ -48,26 +45,46 @@ public class ContactListMenu {
         contactList.addContact(contact);
     }
 
+    private void showShowKievstarContacts(){
+        String s1 = contactList.showKievstarContacts();
+        System.out.println(s1);
+    }
+
+    private void showShowLifeContacts (){
+        String s2 = contactList.showLifeContacts();
+        System.out.println(s2);
+    }
+
+    private void showShowAllContacts () {
+        String s3 = contactList.showAllContacts();
+        System.out.println(s3);
+    }
+
     private void showRemoveLastContact() {
         contactList.removeLast();
+        System.out.println("You have removed last contact");
     }
 
     private void showRemoveContact() {
         contactList.removeContact();
+        System.out.println("You have removed contact");
     }
 
     private void showFirstFiveContact() {
-        contactList.showFirstFive();
+        String s5 = contactList.showFirstFive();
+        System.out.println(s5);
     }
 
     private void showLastFiveContact() {
-        contactList.showLastFiveContacts();
+        String s6 = contactList.showLastFiveContacts();
+        System.out.println(s6);
     }
 
     private void showFindContact() {
         System.out.println("Input name");
         String name = scanner.next();
-        contactList.findContact(name);
+        String s7 = contactList.findContact(name);
+        System.out.println(s7);
     }
 
 
