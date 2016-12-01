@@ -5,10 +5,7 @@ import travelagency.db.DataBase;
 import travelagency.model.*;
 import utils.TravelAgencyUtils;
 
-import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 /**

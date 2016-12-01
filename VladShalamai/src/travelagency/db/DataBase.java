@@ -19,16 +19,8 @@ public class DataBase {
         return tours;
     }
 
-    public void setTours(ArrayList<Tour> tours) {
-        this.tours = tours;
-    }
-
     public List<Request> getRequests() {
         return requests;
-    }
-
-    public void setRequests(ArrayList<Request> requests) {
-        this.requests = requests;
     }
 
 }
