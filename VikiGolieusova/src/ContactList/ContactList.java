@@ -53,7 +53,6 @@ public class ContactList {
                 size--;
                 break;
             }
-
         }
     }
 
@@ -68,17 +67,18 @@ public class ContactList {
         return result;
     }
 
-    public String find(String name) {
-        String result = "";
 
-        for (int i = 0; i < size; i++) {
-            if (name == contactsList[i].getName() && name != null) {
-                result += contactsList[i].showInfo() + "\n";
-                break;
-            }
+public String find(String name) {
+   String result = "";
+
+    for (int i = 0; i < size; i++) {
+        if (name.equals(contactsList[i].getName()) && contactsList[i] != null) {
+           result = contactsList[i].showInfo();
+            break;
         }
-        return result;
     }
+    return result;
+}
 
     public void removeContact(String name) {
 

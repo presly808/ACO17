@@ -38,8 +38,8 @@ public class ContactListTest {
         System.out.println("remove last contact test:" +( list.size == expected));
 
         //test find
-        String s = list.find("Richard");
-        System.out.println("find contact test:" +s.contains("Richard"));
+        String find = list.find("Richard");
+        System.out.println("find contact test:" +find.contains("Richard"));
 
        // remove contact test
         list.removeContact("Richard");
@@ -57,6 +57,7 @@ public class ContactListTest {
 
         //test life contacts
         String lifeContact = list.showLife();
+
         System.out.println("life contact test:" +(lifeContact.contains("name Joe5 , phone 093666665858")
         && lifeContact.contains("name Joe2 , phone 063666665858")));
 

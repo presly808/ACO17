@@ -67,8 +67,8 @@ public class ContactListMenu {
     private void showFindContactMenu() {
         System.out.println("Input name:");
         String name = scanner.next();
-        String find = contactList.find(name);
-        System.out.println(find);
+        String found = contactList.find(name);
+        System.out.println(found);
     }
 
     private void showRemoveContactMenu() {
@@ -87,7 +87,7 @@ public class ContactListMenu {
         System.out.println("6. show first 5 contacts");
         System.out.println("7. show last 5 contacts");
         System.out.println("8. show Life contacts");
-        System.out.println("9. show Kyivstar 5 contacts");
+        System.out.println("9. show Kyivstar contacts");
         System.out.println("0. Exit");
     }
 
