@@ -3,12 +3,18 @@ package utils;
 import travelagency.model.*;
 
 import java.util.GregorianCalendar;
+import java.util.regex.Pattern;
 
 
 /**
  * Created by Влад on 26.11.2016.
  */
 public class TravelAgencyUtils {
+
+    private static final int CENTS = 100;
+
+    private static Pattern patternName = Pattern.compile("[^a-zA-Z\\s]");
+    private static Pattern patternPhone = Pattern.compile("[^0-9]");
 
     public static Tour generateTour() {
 
@@ -18,7 +24,7 @@ public class TravelAgencyUtils {
 
     public static Tour generateTour(long price) {
 
-        return new Tour(generateName(), price * 100, generateDate(2),
+        return new Tour(generateName(), price * CENTS, generateDate(2),
                 generateDate(3), generateTransport(), generateHotel());
     }
 
@@ -28,11 +34,11 @@ public class TravelAgencyUtils {
                 generateDate(3), generateTransport(), generateHotel(country));
     }
 
-    public static int generateNum(int left, int right) {
+    private static int generateNum(int left, int right) {
         return left + (int) (Math.random() * (right - left));
     }
 
-    public static String generateName() {
+    private static String generateName() {
 
         String[] names = {"Nature of Kashmir", "Best of Kerala", "Southern Triangle",
                 "Himachal Tour Packages", "Charming Uttaranchal"};
@@ -40,18 +46,18 @@ public class TravelAgencyUtils {
         return names[generateNum(0, names.length)];
     }
 
-    public static GregorianCalendar generateDate(int month) {
+    private static GregorianCalendar generateDate(int month) {
         return new GregorianCalendar(2017, month,
                 generateNum(0, 31));
     }
 
-    public static String generateTransport() {
+    private static String generateTransport() {
         String[] transport = {"plane", "bus", "helicopter", "bicycle"};
 
         return transport[generateNum(0, transport.length)];
     }
 
-    public static Hotel generateHotel() {
+    private static Hotel generateHotel() {
         String[] names = {"Nihiwatu", "The Spectator", "Huka Lodge", "Southern Ocean Lodge", "Montage Kapalua Bay"};
         Address[] address = {new Address("India", "Deli", "Crishnu-street", 23),
                 new Address("India", "NewDeli", "Some-street", 56),
@@ -63,7 +69,7 @@ public class TravelAgencyUtils {
                 generateNum(100000, 300000), generateNum(3, 6));
     }
 
-    public static Hotel generateHotel(String country) {
+    private static Hotel generateHotel(String country) {
         String[] names = {"Nihiwatu", "The Spectator", "Huka Lodge", "Southern Ocean Lodge", "Montage Kapalua Bay"};
         Address[] address = {new Address(country, "Deli", "Crishnu-street", 23),
                 new Address(country, "NewDeli", "Some-street", 56),
@@ -75,4 +81,13 @@ public class TravelAgencyUtils {
                 generateNum(100000, 300000), generateNum(3, 6));
     }
 
+    public static boolean validate(String name, String phone) {
+
+        return patternName.matcher(name).find() || patternPhone.matcher(phone).find();
+    }
+
+    public static boolean validate(String name) {
+
+        return patternName.matcher(name).find();
+    }
 }
