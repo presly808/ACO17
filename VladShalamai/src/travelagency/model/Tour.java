@@ -31,14 +31,6 @@ public class Tour {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
     public long getPrice() {
         return price;
     }
@@ -47,36 +39,12 @@ public class Tour {
         this.price = price;
     }
 
-    public GregorianCalendar getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(GregorianCalendar startDate) {
-        this.startDate = startDate;
-    }
-
-    public GregorianCalendar getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(GregorianCalendar endDate) {
-        this.endDate = endDate;
-    }
-
-    public String getTransport() {
-        return transport;
-    }
-
     public void setTransport(String transport) {
         this.transport = transport;
     }
 
     public Hotel getHotel() {
         return hotel;
-    }
-
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
     }
 
     @Override

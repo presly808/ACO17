@@ -18,30 +18,7 @@ public class Request {
         this.date = date;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public MyClient getClient() {
-        return client;
-    }
-
-    public void setClient(MyClient client) {
-        this.client = client;
-    }
-
-    public GregorianCalendar getDate() {
-        return date;
-    }
-
-    public void setDate(GregorianCalendar date) {
-        this.date = date;
-    }
-
+    @Override
     public String toString() {
         return String.format("id: %d, \t\tname: %s\ttime: %d/%d/%d \nphone: %s, email:%s\n", this.id,
                 this.client.getName(), this.date.get(Calendar.DATE), this.date.get(Calendar.MONTH),

@@ -3,6 +3,7 @@ package travelagency.controller;
 
 import travelagency.db.DataBase;
 import travelagency.model.*;
+import utils.TravelAgencyUtils;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -16,12 +17,17 @@ import java.util.regex.Pattern;
 public class UserController {
 
     private DataBase dataBase;
-    private Pattern patternName = Pattern.compile("[^a-zA-Z\\s]");
-    private Pattern patternPhone = Pattern.compile("[^0-9]");
+    private static final int CENTS = 100;
 
     public UserController(DataBase dataBase) {
         this.dataBase = dataBase;
     }
+
+    /**
+     * this method return string which consist all info about tours
+     *
+     * @return string of tours
+     */
 
     public String showAllTours() {
 
@@ -34,10 +40,16 @@ public class UserController {
         return sb.toString();
     }
 
+    /**
+     * this method add request in list of requests in our database
+     * @param id id of tour which user want to buy
+     * @param name the name of user
+     * @param phone the phone of user
+     * @param email the email of user
+     */
+
     public void sendTourRequest(int id, String name, String phone, String email) {
 
-        Matcher matcherName = patternName.matcher(name);
-        Matcher matcherPhone = patternPhone.matcher(phone);
         int count = 0;
 
         for (Tour tour : dataBase.getTours()) {
@@ -47,7 +59,8 @@ public class UserController {
             }
         }
 
-        if (matcherName.find() || matcherPhone.find() || count == 0) {
+        if (TravelAgencyUtils.validate(name, phone) || count == 0) {
+            System.out.println("data incorrect or id does not exist");
             return;
         }
 
@@ -55,6 +68,12 @@ public class UserController {
                         new GregorianCalendar()));
 
     }
+
+    /**
+     * this method return string which consist all info about tours which price is less than @param
+     * @param price the max price of tour that user want to watch
+     * @return string of tours
+     */
 
     public String searchByPrice(long price) {
 
@@ -65,13 +84,19 @@ public class UserController {
         }
 
         for (Tour tour : dataBase.getTours()) {
-            if (tour.getPrice() / 100 < price) {
+            if (tour.getPrice() / CENTS < price) {
                 sb.append(tour.toString());
             }
         }
 
         return sb.toString();
     }
+
+    /**
+     * this method return string which consist all info about tours which country is @param
+     * @param country the country of tour that user want to watch
+     * @return string of tours
+     */
 
     public String searchByCountry(String country) {
 

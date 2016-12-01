@@ -17,13 +17,17 @@ public class Run {
         UserController user = new UserController(dataBase);
         AdminController admin = new AdminController(dataBase);
 
-        for (int i = 0; i < 5; i++) {
-            dataBase.getTours().add(TravelAgencyUtils.generateTour());
-        }
+        initTours(dataBase);
 
         ClientView view = new ClientView(admin, user);
 
         view.start();
+    }
+
+    private static void initTours(DataBase dataBase) {
+        for (int i = 0; i < 5; i++) {
+            dataBase.getTours().add(TravelAgencyUtils.generateTour());
+        }
 
     }
 

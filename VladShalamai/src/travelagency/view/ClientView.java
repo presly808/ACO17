@@ -17,6 +17,7 @@ public class ClientView {
     private Scanner scanner = new Scanner(System.in);
     private AdminController admin;
     private UserController user;
+    private static final int CENTS = 100;
 
     public ClientView(AdminController admin, UserController user) {
         this.admin = admin;
@@ -38,8 +39,9 @@ public class ClientView {
                 case 1:
                     System.out.println("enter password");
                     int password = scanner.nextInt();
-                    if (password == AdminController.getPassword()) {
+                    if (AdminController.checkPass(password)) {
                         showAdminMenu();
+                        break;
                     } else {
                         System.out.println("incorrect password");
                         break;
@@ -80,7 +82,7 @@ public class ClientView {
                     break;
                 case 3:
                     System.out.println("enter price: ");
-                    System.out.println(user.searchByPrice(scanner.nextLong() / 100));
+                    System.out.println(user.searchByPrice(scanner.nextLong() * CENTS));
                     break;
                 case 4:
                     System.out.println("enter country: ");
@@ -129,7 +131,7 @@ public class ClientView {
         System.out.println("name: ");
         String name = scanner.next();
         System.out.println("price: ");
-        long price = scanner.nextLong() * 100;
+        long price = scanner.nextLong() * CENTS;
 
         System.out.println("start date in format yyyy/mm/dd");
         String[] date = scanner.next().split("/");
@@ -164,7 +166,7 @@ public class ClientView {
         int id = scanner.nextInt();
 
         System.out.println("enter new price");
-        long newPrice = scanner.nextLong() * 100;
+        long newPrice = scanner.nextLong() * CENTS;
 
         System.out.println("enter new transport");
         String newTransport = scanner.next();

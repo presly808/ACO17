@@ -4,6 +4,7 @@ import travelagency.model.Request;
 import travelagency.model.Tour;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -11,10 +12,10 @@ import java.util.ArrayList;
  */
 public class DataBase {
 
-    private ArrayList<Tour> tours = new ArrayList<>();
-    private ArrayList<Request> requests = new ArrayList<>();
+    private List<Tour> tours = new ArrayList<>();
+    private List<Request> requests = new ArrayList<>();
 
-    public ArrayList<Tour> getTours() {
+    public List<Tour> getTours() {
         return tours;
     }
 
@@ -22,7 +23,7 @@ public class DataBase {
         this.tours = tours;
     }
 
-    public ArrayList<Request> getRequests() {
+    public List<Request> getRequests() {
         return requests;
     }
 
