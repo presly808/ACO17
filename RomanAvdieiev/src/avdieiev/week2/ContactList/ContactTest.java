@@ -16,6 +16,22 @@ public class ContactTest {
         arrayOfContacts.addContact(contact4);
         arrayOfContacts.addContact(contact5);
         arrayOfContacts.addContact(contact6);
+
+        /**addContact test*/
+        String expected = "John";
+        String actual = contact1.getName();
+        System.out.println("addContact test: " + actual.equals(expected));
+        /**removeLast test*/
+        String expected2 = "Rick";
+        arrayOfContacts.removeLast();
+        String actual2 = arrayOfContacts.toString();
+        System.out.println("removeLast test: " + !actual2.contains(expected2));
+        /**showLifeContacts test*/
+        String expected3 = "063";
+        String actual3 = arrayOfContacts.showLifeContacts();
+        System.out.println("showLifeContacts test: " + actual3.contains(expected3));
+
+
 //        System.out.println(arrayOfContacts);
 
 //        arrayOfContacts.removeLast();
@@ -39,9 +55,11 @@ public class ContactTest {
 //        String d = arrayOfContacts.showLastFiveContacts();
 //        System.out.println(d);
 
+//        String e = arrayOfContacts.showLifeContacts();
+//        System.out.println(e);
 
-        String e = arrayOfContacts.showLifeContacts();
-        System.out.println(e);
+//        String f = arrayOfContacts.showKievstarContacts();
+//        System.out.println(f);
 
 
 
