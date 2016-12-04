@@ -1,6 +1,7 @@
 package travelagency.controller;
 
 import travelagency.db.DataBase;
+import travelagency.db.IDataBase;
 import travelagency.model.Hotel;
 import travelagency.model.Request;
 import travelagency.model.Tour;
@@ -15,11 +16,10 @@ import java.util.regex.Pattern;
  */
 public class AdminController {
 
-    private DataBase dataBase;
+    private IDataBase dataBase;
     private static int password = 12345;
-    private static final int CENTS = 100;
 
-    public AdminController(DataBase dataBase) {
+    public AdminController(IDataBase dataBase) {
         this.dataBase = dataBase;
     }
 
@@ -40,7 +40,7 @@ public class AdminController {
             return;
         }
 
-        dataBase.getTours().add(new Tour(name, price * CENTS, startDate, endDate, transport, hotel));
+        dataBase.addTour(name, price, startDate, endDate, transport, hotel);
 
     }
 
@@ -53,13 +53,7 @@ public class AdminController {
 
     public Tour removeTour(int id) {
 
-        for (Tour tour : dataBase.getTours()) {
-            if (tour.getId() == id) {
-                dataBase.getTours().remove(tour);
-                return tour;
-            }
-        }
-        return null;
+        return dataBase.removeTour(id);
     }
 
     /**
@@ -70,13 +64,7 @@ public class AdminController {
 
     public String showAllRequests() {
 
-        StringBuilder sb = new StringBuilder();
-
-        for (Request request : dataBase.getRequests()) {
-            sb.append(request.toString());
-        }
-
-        return sb.toString();
+        return dataBase.getRequests();
     }
 
     /**
@@ -89,13 +77,11 @@ public class AdminController {
 
     public Tour updateTour(int id, long price) {
 
-        for (Tour tour : dataBase.getTours()) {
-            if (tour.getId() == id) {
-                tour.setPrice(price * CENTS);
-                return tour;
-            }
+        if (price <= 0) {
+            return null;
         }
-        return null;
+
+        return dataBase.updateTour(id, price);
     }
 
     /**
@@ -108,13 +94,7 @@ public class AdminController {
 
     public Tour updateTour(int id, String transport) {
 
-        for (Tour tour : dataBase.getTours()) {
-            if (tour.getId() == id) {
-                tour.setTransport(transport);
-                return tour;
-            }
-        }
-        return null;
+        return dataBase.updateTour(id, transport);
     }
 
     /**
@@ -123,6 +103,8 @@ public class AdminController {
      * @param  password  the password which admin want to check
      * @return true id password is the same or false if is not
      */
+
+
 
     public static boolean checkPass(int password) {
         return AdminController.password == password;

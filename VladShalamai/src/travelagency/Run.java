@@ -26,7 +26,7 @@ public class Run {
 
     private static void initTours(DataBase dataBase) {
         for (int i = 0; i < 5; i++) {
-            dataBase.getTours().add(TravelAgencyUtils.generateTour());
+            dataBase.addTour(TravelAgencyUtils.generateTour());
         }
 
     }

@@ -2,10 +2,6 @@ package travelagency.controller;
 
 
 import travelagency.db.DataBase;
-import travelagency.model.*;
-import utils.TravelAgencyUtils;
-
-import java.util.GregorianCalendar;
 
 
 /**
@@ -14,7 +10,6 @@ import java.util.GregorianCalendar;
 public class UserController {
 
     private DataBase dataBase;
-    private static final int CENTS = 100;
 
     public UserController(DataBase dataBase) {
         this.dataBase = dataBase;
@@ -28,13 +23,7 @@ public class UserController {
 
     public String showAllTours() {
 
-        StringBuilder sb = new StringBuilder();
-
-        for (Tour tour : dataBase.getTours()) {
-            sb.append(tour.toString());
-        }
-
-        return sb.toString();
+        return dataBase.getTours();
     }
 
     /**
@@ -47,22 +36,7 @@ public class UserController {
 
     public void sendTourRequest(int id, String name, String phone, String email) {
 
-        int count = 0;
-
-        for (Tour tour : dataBase.getTours()) {
-
-            if (tour.getId() == id) {
-                count++;
-            }
-        }
-
-        if (TravelAgencyUtils.validate(name, phone) || count == 0) {
-            System.out.println("data incorrect or id does not exist");
-            return;
-        }
-
-        dataBase.getRequests().add(new Request(id, new MyClient(name, phone, email),
-                        new GregorianCalendar()));
+        dataBase.addRequest(id, name, phone, email);
 
     }
 
@@ -74,19 +48,11 @@ public class UserController {
 
     public String searchByPrice(long price) {
 
-        StringBuilder sb = new StringBuilder();
-
         if (price < 0) {
             return null;
         }
 
-        for (Tour tour : dataBase.getTours()) {
-            if (tour.getPrice() / CENTS < price) {
-                sb.append(tour.toString());
-            }
-        }
-
-        return sb.toString();
+        return dataBase.searchTour(price);
     }
 
     /**
@@ -97,15 +63,7 @@ public class UserController {
 
     public String searchByCountry(String country) {
 
-        StringBuilder sb = new StringBuilder();
-
-        for (Tour tour : dataBase.getTours()) {
-            if (tour.getHotel().getAddress().getCountry().equals(country)) {
-                sb.append(tour.toString());
-            }
-        }
-
-        return sb.toString();
+        return dataBase.searchTour(country);
     }
 
 }

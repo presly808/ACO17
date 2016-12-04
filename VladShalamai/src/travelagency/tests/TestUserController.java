@@ -25,12 +25,12 @@ public class TestUserController {
         UserController user = new UserController(dataBase);
 
         for (int i = 0; i < 5; i++) {
-            dataBase.getTours().add(generateTour());
+            dataBase.addTour(generateTour());
         }
 
         user.sendTourRequest(13, "Vlad", "555555", "vlad@gmail.com");
 
-        System.out.println("sendTourRequest() is " + (dataBase.getRequests().size() == 1));
+        System.out.println("sendTourRequest() is " + (dataBase.getNumberOfRequests() == 1));
     }
 
     private static void testSearchByCountry() {
@@ -38,9 +38,9 @@ public class TestUserController {
         DataBase dataBase = new DataBase();
         UserController user = new UserController(dataBase);
 
-        dataBase.getTours().add(generateTour("Ukraine"));
-        dataBase.getTours().add(generateTour("Poland"));
-        dataBase.getTours().add(generateTour("Poland"));
+        dataBase.addTour(generateTour("Ukraine"));
+        dataBase.addTour(generateTour("Poland"));
+        dataBase.addTour(generateTour("Poland"));
 
         String actual = user.searchByCountry("Ukraine");
         System.out.println("searchByCountry() is " + (actual.contains("Ukraine") && !actual.contains("Poland")));
@@ -51,9 +51,9 @@ public class TestUserController {
         DataBase dataBase = new DataBase();
         UserController user = new UserController(dataBase);
 
-        dataBase.getTours().add(generateTour(3000));
-        dataBase.getTours().add(generateTour(2300));
-        dataBase.getTours().add(generateTour(5400));
+        dataBase.addTour(generateTour(3000));
+        dataBase.addTour(generateTour(2300));
+        dataBase.addTour(generateTour(5400));
 
         String actual = user.searchByPrice(5000);
         System.out.println("searchByPrice() is " + (actual.contains("3000") &&
@@ -66,7 +66,7 @@ public class TestUserController {
         UserController user = new UserController(dataBase);
 
         for (int i = 0; i < 5; i++) {
-            dataBase.getTours().add(generateTour());
+            dataBase.addTour(generateTour());
         }
 
         String actual = user.showAllTours();

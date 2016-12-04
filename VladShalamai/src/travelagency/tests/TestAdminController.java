@@ -20,7 +20,7 @@ public class TestAdminController {
         DataBase dataBase = new DataBase();
 
         for (int i = 0; i < 5; i++) {
-            dataBase.getTours().add(generateTour());
+            dataBase.addTour(generateTour());
         }
 
         testAddTour(dataBase);
@@ -64,7 +64,7 @@ public class TestAdminController {
                 new GregorianCalendar(2016, 3, 20,12, 10), "plane", new Hotel("Hilton",
                         new Address("USA", "New-York", "Wall-Street", 12), 700, 5));
 
-        System.out.println("addTour() is " + (dataBase.getTours().size() == 6));
+        System.out.println("addTour() is " + (dataBase.getNumberOfTours() == 6));
 
     }
 
