@@ -8,6 +8,6 @@ public class IllegalUser extends IVkUser{
 
     @Override
     public void addPost(int id) {
-        System.out.println("illegal post has added, \nid + " + id);
+        new PostAddController().addPost(this, id);
     }
 }

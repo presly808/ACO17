@@ -5,7 +5,7 @@ public class PostAddController {
     public void addPost(IVkUser vkUser, int id) {
 
         if (vkUser instanceof LegalUser) {
-            vkUser.addPost(id);
+            System.out.println("post by id " + id + " has added");
         }
     }
 }

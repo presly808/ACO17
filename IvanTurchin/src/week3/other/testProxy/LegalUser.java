@@ -8,6 +8,6 @@ public class LegalUser extends IVkUser{
 
     @Override
     public void addPost(int id) {
-        System.out.println("legal post, \nid " + id);
+        new PostAddController().addPost(this, id);
     }
 }

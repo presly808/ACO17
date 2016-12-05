@@ -7,9 +7,7 @@ public class Vk {
         LegalUser legalUser = new LegalUser("legal", 1);
         IllegalUser illegalUser = new IllegalUser("illegal", 2);
 
-        PostAddController postAddController = new PostAddController();
-
-        postAddController.addPost(legalUser, 1);
-        postAddController.addPost(illegalUser, 2);
+        legalUser.addPost(1);
+        illegalUser.addPost(2);
     }
 }
