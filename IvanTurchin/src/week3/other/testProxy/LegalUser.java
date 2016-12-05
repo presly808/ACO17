@@ -1,13 +1,9 @@
 package week3.other.testProxy;
 
-public class LegalUser extends IVkUser{
-
-    public LegalUser(String login, int id) {
-        super(login, id);
-    }
+public class LegalUser implements IVkUser {
 
     @Override
     public void addPost(int id) {
-        new PostAddController().addPost(this, id);
+        System.out.println("legal post added, id " + id);
     }
 }
