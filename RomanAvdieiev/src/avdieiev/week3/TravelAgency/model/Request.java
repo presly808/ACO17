@@ -1,14 +1,12 @@
 package avdieiev.week3.TravelAgency.model;
 
-import avdieiev.week3.TravelAgency.MyDate;
-
 public class Request {
     private String clientName;
     private String clientPhone;
     private int idTour;
     private MyDate dateRequest;
 
-    public Request(String clientName, String clientPhone, int idTour, MyDate dateRequest) {
+    public Request( int idTour, String clientName, String clientPhone, MyDate dateRequest) {
         this.clientName = clientName;
         this.clientPhone = clientPhone;
         this.idTour = idTour;

@@ -1,4 +1,4 @@
-package avdieiev.week3.TravelAgency;
+package avdieiev.week3.TravelAgency.model;
 
 
 public class Time {
@@ -25,5 +25,13 @@ public class Time {
 
     public int getHours() {
         return hours;
+    }
+
+    @Override
+    public String toString() {
+        return "Time{" +
+                "hours=" + hours +
+                ", minutes=" + minutes +
+                '}';
     }
 }

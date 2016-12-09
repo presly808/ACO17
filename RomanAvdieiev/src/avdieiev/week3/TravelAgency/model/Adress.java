@@ -1,4 +1,4 @@
-package avdieiev.week3.TravelAgency;
+package avdieiev.week3.TravelAgency.model;
 
 public class Adress {
     private String country;
@@ -44,5 +44,15 @@ public class Adress {
 
     public int getHouseNumber() {
         return houseNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Adress{" +
+                "country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", houseNumber=" + houseNumber +
+                '}';
     }
 }

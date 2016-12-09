@@ -1,4 +1,4 @@
-package avdieiev.week3.TravelAgency;
+package avdieiev.week3.TravelAgency.model;
 
 
 public class Tour {
@@ -55,5 +55,16 @@ public class Tour {
 
     public Hotel getHotel() {
         return hotel;
+    }
+
+    @Override
+    public String toString() {
+        return "Tour{" +
+                "ID=" + ID +
+                ", price=" + price +
+                ", date=" + date.toString() +
+                ", transport='" + transport + '\'' +
+                ", hotel=" + hotel.toString() +
+                '}';
     }
 }

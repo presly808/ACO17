@@ -1,4 +1,4 @@
-package avdieiev.week3.TravelAgency;
+package avdieiev.week3.TravelAgency.model;
 
 public class Hotel {
     private String name;
@@ -44,5 +44,15 @@ public class Hotel {
 
     public int getRating() {
         return rating;
+    }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "name='" + name + '\'' +
+                ", adress=" + adress +
+                ", price=" + price +
+                ", rating=" + rating +
+                '}';
     }
 }
