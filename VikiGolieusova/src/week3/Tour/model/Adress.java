@@ -1,9 +1,7 @@
-package week3.Tour;
+package week3.Tour.model;
 
 public class Adress {
     private String country;
-
-
     private String city;
     private String street;
     private int number;
@@ -46,5 +44,14 @@ public class Adress {
         this.number = number;
     }
 
+    @Override
+    public String toString() {
+        return "Adress{" +
+                "country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", number=" + number +
+                '}';
+    }
 }
 

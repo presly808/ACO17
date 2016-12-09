@@ -1,20 +1,21 @@
-package week3.Tour;
+package week3.Tour.model;
+
+import week3.Tour.model.Adress;
 
 public class Hotel {
-   private String name;
-   private Adress  adress;
-
-
+    private String name;
+    private Adress adress;
 
     private long price;
     private int rating;
 
-    public Hotel(String name, Adress adress, long price, int rating){
+    public Hotel(String name, Adress adress, long price, int rating) {
         this.name = name;
         this.adress = adress;
         this.price = price;
         this.rating = rating;
     }
+
     public String getName() {
         return name;
     }
@@ -45,6 +46,16 @@ public class Hotel {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "name='" + name + '\'' +
+                ", adress=" + adress.toString() +
+                ", price=" + price +
+                ", rating=" + rating +
+                '}';
     }
 }
 

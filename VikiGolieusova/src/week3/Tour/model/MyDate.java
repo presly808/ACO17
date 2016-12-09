@@ -1,10 +1,15 @@
-package week3.Tour;
+package week3.Tour.model;
 
 public class MyDate {
     private int year;
     private int month;
     private int day;
-    private Time time;
+
+    public MyDate( int day, int month,int year) {
+        this.year = year;
+        this.month = month;
+        this.day = day;
+    }
 
     public int getYear() {
         return year;
@@ -30,12 +35,12 @@ public class MyDate {
         this.day = day;
     }
 
-    public Time getTime() {
-        return time;
+    @Override
+    public String toString() {
+        return "MyDate{" +
+                "year=" + year +
+                ", month=" + month +
+                ", day=" + day +
+                '}';
     }
-
-    public void setTime(Time time) {
-        this.time = time;
-    }
-
 }

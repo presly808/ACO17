@@ -1,10 +1,21 @@
-package week3.Tour;
+package week3.Tour.model;
+
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class Request {
     private String name;
     private String phone;
     private int id;
-    private MyDate dateRequest;
+    private Date dateRequest;
+
+    public Request(int id, String name, String phone, Date dateRequest) {
+        this.name = name;
+        this.phone = phone;
+        this.id = id;
+        this.dateRequest = dateRequest;
+    }
 
     public String getName() {
         return name;
@@ -30,12 +41,11 @@ public class Request {
         this.id = id;
     }
 
-    public MyDate getDateRequest() {
+    public Date getDateRequest() {
         return dateRequest;
     }
 
-    public void setDateRequest(MyDate dateRequest) {
+    public void setDateRequest(Date dateRequest) {
         this.dateRequest = dateRequest;
     }
-
 }

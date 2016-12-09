@@ -1,4 +1,4 @@
-package week3.Tour;
+package week3.Tour.model;
 
 public class Time {
 
@@ -21,4 +21,11 @@ public class Time {
         this.mm = mm;
     }
 
+    @Override
+    public String toString() {
+        return "Time{" +
+                "hh=" + hh +
+                ", mm=" + mm +
+                '}';
+    }
 }
