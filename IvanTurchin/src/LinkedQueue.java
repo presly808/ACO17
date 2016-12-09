@@ -7,8 +7,8 @@ import java.util.EmptyStackException;
 
 public class LinkedQueue implements Queue {
 
-    private Node head = null;
-    private Node tail = null;
+    private Node head;
+    private Node tail;
 
     @Override
     public void enqueue(@NotNull Object object) {
